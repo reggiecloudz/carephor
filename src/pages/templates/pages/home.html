@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+    {% include 'partials/appbar.html' %}
+
+    <main class="mb-0" role="main">
+        <div class="mt-n4">
+            {% include 'partials/home_hero.html' %}
+            {% include 'partials/home_campaigns.html' with campaigns=campaigns %}
+            {% include 'partials/home_causes.html' %}
+        </div>
+    </main>
+{% endblock content %}

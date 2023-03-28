@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ request.user.name }}
+{% endblock title %}
+
+{% block content %}
+    {% include 'partials/appbar.html' %}
+    <main>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <!-- Advanced filter responsive toggler START -->
+                    <div class="d-flex align-items-center d-lg-none">
+                        <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+                            <span class="btn btn-primary"><i class="fa-solid fa-sliders-h"></i></span>
+                            <span class="h6 mb-0 fw-bold d-lg-none ms-2">My profile</span>
+                        </button>
+                    </div>
+                    <!-- Advanced filter responsive toggler END -->
+
+                    {% include 'partials/member_nav.html' %}
+                </div>
+
+                <div class="col-md-8 col-lg-6 vstack gap-4">
+                    <div class="card">
+                        <div class="card-header border-0 pb-0">
+                            <h5 class="card-title"> Member Info</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="rounded border px-3 py-2 mb-3">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h6>Overview</h6>
+                                    <div class="dropdown ms-auto">
+                                        <a class="nav-link text-secondary mb-0" href="#" id="aboutAction" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction">
+                                            <li><a class="dropdown-item" href="#"> <i class="bi bi-pencil-square fa-fw pe-2"></i>Edit</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#"> <i class="bi bi-trash fa-fw pe-2"></i>Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <p>
+                                    He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire
+                                    difficulty gay assistance joy. Handsome met debating sir dwelling age material. As
+                                    style lived he worse dried. Offered related so visitors we private removed. Moderate
+                                    do subjects to distance. 
+                                </p>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center rounded border px-3 py-2">
+                                        <p class="mb-0">
+                                            <i class="bi bi-calendar-date fa-fw me-2"></i> 
+                                            Born: <strong> October 20, 1990 </strong>
+                                        </p>
+                                        <div class="dropdown ms-auto">
+                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction2" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction2">
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
+                                                        Edit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-trash fa-fw pe-2"></i>
+                                                        Delete
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center rounded border px-3 py-2">
+                                        <p class="mb-0">
+                                            <i class="bi bi-heart fa-fw me-2"></i> Status: <strong> Single </strong>
+                                        </p>
+                                        <div class="dropdown ms-auto">
+                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction3" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction3">
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
+                                                        Edit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-trash fa-fw pe-2"></i>
+                                                        Delete
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center rounded border px-3 py-2">
+                                        <p class="mb-0">
+                                            <i class="bi bi-briefcase fa-fw me-2"></i> <strong> Lead Developer </strong>
+                                        </p>
+                                        <div class="dropdown ms-auto">
+                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction4" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction4">
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
+                                                        Edit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-trash fa-fw pe-2"></i>
+                                                        Delete
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center rounded border px-3 py-2">
+                                        <p class="mb-0">
+                                            <i class="bi bi-geo-alt fa-fw me-2"></i> Lives in: <strong> New Hampshire
+                                            </strong>
+                                        </p>
+                                        <div class="dropdown ms-auto">
+                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction5" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction5">
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
+                                                        Edit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-trash fa-fw pe-2"></i>
+                                                        Delete
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center rounded border px-3 py-2">
+                                        <p class="mb-0">
+                                            <i class="bi bi-geo-alt fa-fw me-2"></i> Joined on: <strong> Nov 26, 2019
+                                            </strong>
+                                        </p>
+                                        <div class="dropdown ms-auto">
+                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction6" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction6">
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
+                                                        Edit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-trash fa-fw pe-2"></i>
+                                                        Delete
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center rounded border px-3 py-2">
+                                        <p class="mb-0">
+                                            <i class="bi bi-envelope fa-fw me-2"></i> 
+                                            Email: <strong> member@local.com </strong>
+                                        </p>
+                                        <div class="dropdown ms-auto">
+                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction7" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction7">
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
+                                                        Edit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="#"> 
+                                                        <i class="bi bi-trash fa-fw pe-2"></i>
+                                                        Delete
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 position-relative">
+                                    <a class="btn btn-dashed rounded w-100" href="#!"> 
+                                        <i class="bi bi-plus-circle-dotted me-1"></i>
+                                        Add a workplace
+                                    </a>
+                                </div>
+                                <div class="col-sm-6 position-relative">
+                                    <a class="btn btn-dashed rounded w-100" href="#!"> 
+                                        <i class="bi bi-plus-circle-dotted me-1"></i>
+                                        Add a education
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="row g-4">
+                        <!-- Card follow START -->
+                        <div class="col-sm-6 col-lg-12">
+                            {% include 'partials/follow_card.html' %}
+                        </div>
+                        <!-- Card follow START -->
+    
+                        <!-- Card News START -->
+                        <div class="col-sm-6 col-lg-12">
+                            {% include 'partials/news_card.html' %}
+                        </div>
+                        <!-- Card News END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

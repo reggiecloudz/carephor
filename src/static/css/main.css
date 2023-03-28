@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "Montserrat Bold";
+    src: url('../fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Montserrat Light";
+    src: url('../fonts/Montserrat/static/Montserrat-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Montserrat Regular";
+    src: url('../fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+}
+
+.shakespeare {
+    color: #63A0C1;
+}
+
+body {
+    font-family: "Montserrat Regular" !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat Light' !important;
+}
+
+.silver-tree {
+    color: #6FBC97;
+}
+
+.montserrat {
+    font-family: 'Montserrat';
+}
+
+.font-shadow {
+    text-shadow: .5px .5px .5px #232322;
+}
+
+.theme-gradient {
+    background: rgb(99,160,193);
+    background: -moz-linear-gradient(0deg, rgba(99,160,193,1) 0%, rgba(111,188,151,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(99,160,193,1) 0%, rgba(111,188,151,1) 100%);
+    background: linear-gradient(0deg, rgba(99,160,193,1) 0%, rgba(111,188,151,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#63a0c1",endColorstr="#6fbc97",GradientType=1);
+}
+
+.card.card-overlay-bottom:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#22242e)) !important;
+    background-image: linear-gradient(180deg, transparent, #22242e) !important;
+}
+
+.img-cover {
+  -o-object-fit: cover;
+  object-fit: cover
+}
+
+.btn-shakespeare {
+    background-color: #63A0C1;
+}
+
+.btn-shakespeare:hover {
+    background-color: #4F809A;
+}
+
+:root {
+    --bs-link-color: #63A0C1;
+    --bs-link-color-rgb: 99,160,193;
+    --bs-link-decoration: none;
+    --bs-link-hover-color: #4F809A;
+}
+
+
+/* .btn-primary-soft {
+  color: #0f6fec;
+  background-color: rgba(15, 111, 236, 0.1);
+}
+
+.btn-primary-soft:active, .btn-primary-soft:hover, .btn-primary-soft:focus {
+  color: #fff !important;
+  background-color: #0f6fec !important;
+  border-color: #0f6fec !important;
+} */

@@ -1,0 +1,94 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg mx-0"> 
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSideNavbar">
+        <!-- Offcanvas header -->
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <!-- Offcanvas body -->
+        <div class="offcanvas-body d-block px-2 px-lg-0">
+            <!-- Card START -->
+            <div class="card overflow-hidden">
+                <!-- Cover image -->
+                <div class="h-100px" style="background-image:url({% static 'assets/images/bg/01.jpg' %}); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                    <!-- Card body START -->
+                    <div class="card-body pt-0">
+                        <div class="text-center">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-lg mt-n5 mb-3">
+                            <a href="#!"><img class="avatar-img rounded border border-white border-3" src="{{ request.user.photo.url }}" alt=""></a>
+                        </div>
+                        <!-- Info -->
+                        <h5 class="mb-0"> <a href="#!"> {{ request.user.name }} </a> </h5>
+                        <small>{{ request.user.member.occupation }}</small>
+                    </div>
+
+                    <!-- Divider -->
+                    <hr>
+
+                    <!-- Side Nav START -->
+                    <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> 
+                                <i class="fa-solid fa-clipboard me-2"></i>
+                                <span>Applications</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> 
+                                <i class="fa-solid fa-heart-pulse me-2"></i>
+                                <span>Campaigns</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> 
+                                <i class="fa-solid fa-helmet-safety me-2"></i>
+                                <span>Work</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> 
+                                <i class="fa-solid fa-hand-holding-heart me-2"></i>
+                                <span>Donations</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Side Nav END -->
+                </div>
+                <!-- Card body END -->
+                <!-- Card footer -->
+                <div class="card-footer text-center py-2">
+                    <a class="btn btn-link btn-sm" href="#">View Profile </a>
+                </div>
+            </div>
+            <!-- Card END -->
+
+            <!-- Helper link START -->
+            <ul class="nav small mt-4 justify-content-center lh-1">
+                <li class="nav-item">
+                    <a class="nav-link" href="my-profile-about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="#">Support </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="docs/index.html">Docs </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="help.html">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="privacy-and-terms.html">Privacy & terms</a>
+                </li>
+            </ul>
+            <!-- Helper link END -->
+            <!-- Copyright -->
+            <p class="small text-center mt-1">©2023 <a class="text-body" target="_blank" href="#"> Carephor </a></p>
+        </div>
+    </div>
+</nav>
