@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ event.name }}
+{% endblock title %}
+
+{% block content %}
+{% include 'partials/appbar.html' %}
+<main>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-8 vstack gap-4">
+                <div class="card card-body">
+                    <!-- Overview -->
+                    <h4> {{ event.name }} </h4>
+                    <img class="img-fluid img-cover mb-3" style="height: 300px;" src="{{ event.photo.url }}" alt="">
+                    <h6 class="my-2">Details</h6>
+                    <p>
+                        {{ event.details }}
+                    </p>
+        
+                    <div class="mt-3">
+                      <h4>Schedule </h4>
+                      <div class="accordion accordion-icon" id="accordionschedules">
+                        <!-- Accordion item -->
+                        <div class="accordion-item mb-3">
+                          <div class="accordion-header" id="scheduleOne">
+                            <button class="accordion-button pe-5 flex-wrap mb-0" type="button" data-bs-toggle="collapse" data-bs-target="#schedulecollapseOne" aria-expanded="true" aria-controls="schedulecollapseOne">
+                              <span class="me-2">November 17, 2022</span>
+                              <span class="me-2">12:00 </span>
+                              <strong>Express besides it present</strong>
+                            </button>
+                          </div>
+                          <!-- Accordion info -->
+                          <div id="schedulecollapseOne" class="accordion-collapse collapse show" aria-labelledby="scheduleOne" data-bs-parent="#accordionschedules">
+                            <div class="accordion-body">
+                              <p>Particular way thoroughly unaffected projection favorable Mrs can be projecting own. Thirty it matter enable become admire in giving. See resolved goodness felicity shy civility domestic had but. Drawings offended yet answered Jennings perceive laughing six did far. </p>
+                              <div class="row g-4">
+                                <div class="col-12">
+                                  <h5 class="mb-0">Speaker</h5>
+                                </div>
+                                <div class="col-sm-4 col-lg-3">
+                                  <!-- Host Item -->
+                                  <div class="card card-body text-center">
+                                    <div class="avatar avatar-lg mx-auto mb-3"> 
+                                      <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/01.jpg' %}" alt="">
+                                    </div>
+                                    <!-- Host name -->
+                                    <div>
+                                      <h6 class="mb-0">Bryan Knight</h6>
+                                      <span>Founder</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-4 col-lg-3">
+                                  <!-- Host Item -->
+                                  <div class="card card-body text-center">
+                                    <div class="avatar avatar-lg mx-auto mb-3"> 
+                                      <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/02.jpg' %}" alt="">
+                                    </div>
+                                    <!-- Host name -->
+                                    <div>
+                                      <h6 class="mb-0">Bryan Knight</h6>
+                                      <span>Founder</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Accordion item -->
+                        <div class="accordion-item mb-3">
+                          <div class="accordion-header" id="scheduleTwo">
+                            <button class="accordion-button pe-5 flex-wrap mb-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#schedulecollapseTwo" aria-expanded="false" aria-controls="schedulecollapseTwo">
+                              <span class="me-2">February 05, 2023</span>
+                              <span class="me-2">07:00 </span>
+                              <strong>Making it over 2000 years</strong>
+                            </button>
+                          </div>
+                          <!-- Accordion info -->
+                          <div id="schedulecollapseTwo" class="accordion-collapse collapse" aria-labelledby="scheduleTwo" data-bs-parent="#accordionschedules">
+                            <div class="accordion-body">
+                              <p>Particular way thoroughly unaffected projection favorable Mrs can be projecting own. Thirty it matter enable become admire in giving. See resolved goodness felicity shy civility domestic had but. Drawings offended yet answered Jennings perceive laughing six did far. </p>
+                              <div class="row g-4">
+                                <div class="col-12">
+                                  <h5 class="mb-0">Speaker</h5>
+                                </div>
+                                <div class="col-sm-4 col-lg-3">
+                                  <!-- Host Item -->
+                                  <div class="card card-body text-center">
+                                    <div class="avatar avatar-lg mx-auto mb-3"> 
+                                      <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/03.jpg' %}" alt="">
+                                    </div>
+                                    <!-- Host name -->
+                                    <div>
+                                      <h6 class="mb-0">Bryan Knight</h6>
+                                      <span>Founder</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-4 col-lg-3">
+                                  <!-- Host Item -->
+                                  <div class="card card-body text-center">
+                                    <div class="avatar avatar-lg mx-auto mb-3"> 
+                                      <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/04.jpg' %}" alt="">
+                                    </div>
+                                    <!-- Host name -->
+                                    <div>
+                                      <h6 class="mb-0">Bryan Knight</h6>
+                                      <span>Founder</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Accordion item -->
+                        <div class="accordion-item mb-3">
+                          <div class="accordion-header" id="scheduleThree">
+                            <button class="accordion-button pe-5 flex-wrap mb-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#schedulecollapseThree" aria-expanded="false" aria-controls="schedulecollapseThree">
+                              <span class="me-2">December 15, 2022</span>
+                              <span class="me-2">8:00PM </span>
+                              <strong>The furnished she concluded depending </strong>
+                            </button>
+                          </div>
+                          <!-- Accordion info -->
+                          <div id="schedulecollapseThree" class="accordion-collapse collapse" aria-labelledby="scheduleThree" data-bs-parent="#accordionschedules">
+                            <div class="accordion-body">
+                              <p>Particular way thoroughly unaffected projection favorable Mrs can be projecting own. Thirty it matter enable become admire in giving. See resolved goodness felicity shy civility domestic had but. Drawings offended yet answered Jennings perceive laughing six did far. </p>
+                              <div class="row g-4">
+                                <div class="col-12">
+                                  <h5 class="mb-0">Speaker</h5>
+                                </div>
+                                <div class="col-sm-4 col-lg-3">
+                                  <!-- Host Item -->
+                                  <div class="card card-body text-center">
+                                    <div class="avatar avatar-lg mx-auto mb-3">
+                                      <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/05.jpg' %}" alt="">
+                                    </div>
+                                    <!-- Host name -->
+                                    <div>
+                                      <h6 class="mb-0">Bryan Knight</h6>
+                                      <span>Founder</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-4 col-lg-3">
+                                  <!-- Host Item -->
+                                  <div class="card card-body text-center">
+                                    <div class="avatar avatar-lg mx-auto mb-3">
+                                      <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/06.jpg' %}" alt="">
+                                    </div>
+                                    <!-- Host name -->
+                                    <div>
+                                      <h6 class="mb-0">Bryan Knight</h6>
+                                      <span>Founder</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Accordion item -->
+                        <div class="accordion-item">
+                          <div class="accordion-header" id="scheduleFour">
+                            <button class="accordion-button pe-5 flex-wrap mb-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#schedulecollapseFour" aria-expanded="false" aria-controls="schedulecollapseFour">
+                              <span class="me-2">March 17, 2022</span>
+                              <span class="me-2">2:00PM </span>
+                              <strong>Particular way thoroughly</strong>
+                            </button>
+                          </div>
+                          <!-- Accordion info -->
+                          <div id="schedulecollapseFour" class="accordion-collapse collapse" aria-labelledby="scheduleFour" data-bs-parent="#accordionschedules">
+                            <div class="accordion-body">
+                              <p>Particular way thoroughly unaffected projection favorable Mrs can be projecting own. Thirty it matter enable become admire in giving. See resolved goodness felicity shy civility domestic had but. Drawings offended yet answered Jennings perceive laughing six did far. </p>
+                              <div class="row g-4">
+                                <div class="col-12">
+                                  <h5 class="mb-0">Speaker</h5>
+                                </div>
+                                <div class="col-sm-4 col-lg-3">
+                                  <!-- Host Item -->
+                                  <div class="card card-body text-center">
+                                    <div class="avatar avatar-lg mx-auto mb-3"> 
+                                      <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/07.jpg' %}" alt="">
+                                    </div>
+                                    <!-- Host name -->
+                                    <div>
+                                      <h6 class="mb-0">Bryan Knight</h6>
+                                      <span>Founder</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-4 col-lg-3">
+                                  <!-- Host Item -->
+                                  <div class="card card-body text-center">
+                                    <div class="avatar avatar-lg mx-auto mb-3"> 
+                                      <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/08.jpg' %}" alt="">
+                                    </div>
+                                    <!-- Host name -->
+                                    <div>
+                                      <h6 class="mb-0">Bryan Knight</h6>
+                                      <span>Founder</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-body">
+                    <a class="btn btn-primary w-100" href="#"> Attend </a>
+                    <div class="mt-4">
+                      <ul class="list-unstyled mb-4">
+                        <li class="d-flex justify-content-between mb-3"> 
+                            <strong class="w-150px">Date:</strong> 
+                            <span class="text-end"> {{ event.start_time|date:'D, M m, Y' }} </span>
+                        </li>
+                        <li class="d-flex justify-content-between mb-3"> 
+                            <strong class="w-150px">Time:</strong> 
+                            <span class="text-end"> {{ event.start_time|date:'h:i A' }} - {{ event.end_time|date:'h:i A' }}</span>
+                        </li>
+                        <li class="d-flex justify-content-between mb-3"> 
+                            <strong class="w-150px">Capacity:</strong> 
+                            <span class="text-end"> {{ event.num_of_attendees }} </span>
+                        </li>
+                        <li class="d-flex justify-content-between mb-3"> 
+                            <strong class="w-150px">Venue:</strong> 
+                            <span class="text-end"> {{ event.venue }} </span>
+                        </li>
+                        <li class="d-flex justify-content-between mb-3"> 
+                            <strong class="w-150px">Address:</strong> 
+                            <span class="text-end"> {{ event.location }} </span>
+                        </li>
+                      </ul> 
+                      <iframe class="w-100 d-block rounded-bottom grayscale" height="230" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.00425878428698!3d40.74076684379132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c1654f3%3A0xc80f9cfce5383d5d!2sGoogle!5e0!3m2!1sen!2sin!4v1586000412513!5m2!1sen!2sin"  style="border:0;" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% include 'partials/footer.html' %}
+{% endblock content %}

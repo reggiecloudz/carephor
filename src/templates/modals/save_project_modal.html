@@ -1,0 +1,44 @@
+<div class="modal fade" id="saveProjectModal" tabindex="-1" aria-labelledby="saveProjectLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="saveProjectLabel">Save Project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="" id="project-form" action="javascript:void(0);" novalidate enctype="multipart/form-data">
+                    <div class="mb-3">
+                        {{ form.name.errors }}
+                        <label for="{{ form.name.id_for_label }}">Name:</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.overview.errors }}
+                        <label class="form-label" for="{{ form.overview.id_for_label }}">Overview:</label>
+                        {{ form.overview }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.vision.errors }}
+                        <label class="form-label" for="{{ form.vision.id_for_label }}">Vision:</label>
+                        {{ form.vision }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.photo.errors }}
+                        <label class="form-label" for="{{ form.photo.id_for_label }}">Photo:</label>
+                        {{ form.photo }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.cause.errors }}
+                        <label class="form-label" for="{{ form.cause.id_for_label }}">Cause:</label>
+                        {{ form.cause }}
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="project-form" class="btn btn-success-soft">Save now</button>
+                <button type="button" class="btn btn-danger-soft me-2" data-bs-dismiss="modal"> Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

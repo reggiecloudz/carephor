@@ -1,0 +1,6 @@
+from django.urls import path, include
+
+urlpatterns = [
+    path('', include('projects.urls.projects')),
+    path('', include('projects.urls.positions')),
+]

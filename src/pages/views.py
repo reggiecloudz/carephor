@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
-from campaigns.models import Campaign
+from projects.models import Project
+from small_groups.models import SmallGroup
 
 def home(request):
     # if request.user.is_authenticated:
@@ -8,7 +9,8 @@ def home(request):
     
     template_name='pages/home.html'
     context = {}
-    context["campaigns"] = Campaign.objects.all()
+    context["groups"] = SmallGroup.objects.all()[:3]
+    context["projects"] = Project.objects.all()
     return render(request, template_name, context)
 
 def not_found(request):

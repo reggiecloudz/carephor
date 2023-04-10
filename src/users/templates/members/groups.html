@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ request.user.name }} Groups
+{% endblock title %}
+
+{% block content %}
+    {% include 'partials/appbar.html' %}
+    <main>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <!-- Advanced filter responsive toggler START -->
+                    <div class="d-flex align-items-center d-lg-none">
+                        <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+                            <span class="btn btn-primary"><i class="fa-solid fa-sliders-h"></i></span>
+                            <span class="h6 mb-0 fw-bold d-lg-none ms-2">Profile</span>
+                        </button>
+                    </div>
+                    <!-- Advanced filter responsive toggler END -->
+
+                    {% include 'partials/member_nav.html' %}
+                </div>
+
+                <div class="col-lg-9 vstack gap-4">
+                    <div class="card h-100">
+                        <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+                            <h1 class="h4 card-title">Groups</h1>
+                            <!-- Button modal -->
+                            <a class="btn btn-primary-soft" href="#" data-bs-toggle="modal" data-bs-target="#newProjectModal"> <i
+                                    class="fa-solid fa-plus pe-1"></i> Create group</a>
+                        </div>
+                        <div class="card-body">
+                            <ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+                                <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1"> My Groups </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2"> Memberships </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-3"> Recommendations </a> </li>
+                            </ul>
+                    
+                            <div class="tab-content mb-0 pb-0">
+                                <div class="tab-pane fade show active" id="tab-1">
+                                    <div class="row g-4">
+                                        {% for group in member.small_groups.all %}
+                                        <div class="col-12">
+                                            <div class="card card-body bg-transparent border-0 p-0">
+                                                <div class="row">
+                                                    <div class="d-sm-flex align-items-center">
+                                                        <div class="avatar avatar-xl">
+                                                            <a href="#!">
+                                                                <img class="avatar-img rounded border border-white border-3"
+                                                                    src="{{ group.photo.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="ms-sm-4 mt-2 mt-sm-0">
+                                                            <h5 class="mb-1">
+                                                                <a href="{% url 'groups:details' group.id %}"> 
+                                                                    {{ group.name }} 
+                                                                </a>
+                                                            </h5>
+                                                            <ul class="nav nav-stack small">
+                                                                <li class="nav-item">
+                                                                    <i class="bi bi-calendar-check pe-1"></i> {{  group.created_at|date:"M, d, Y"}}
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <i class="bi bi-geo-alt pe-1"></i> San francisco
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <i class="bi bi-people pe-1"></i> 77 supporting
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="d-flex mt-3 ms-auto">
+                                                            <div class="dropdown">
+                                                                <button class="icon-md btn btn-primary-soft" type="button" id="profileAction"
+                                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    <i class="bi bi-three-dots"></i>
+                                                                </button>
+                                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileAction">
+                                                                    <li>
+                                                                        <a class="dropdown-item" href="#"> 
+                                                                            <i class="bi bi-info-circle fa-fw pe-2"></i>
+                                                                            Details
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item" href="#"> 
+                                                                            <i class="bi bi-eye fa-fw pe-2"></i>
+                                                                            Public
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <hr class="dropdown-divider">
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item text-danger" href="#"> 
+                                                                            <i class="bi bi-trash3 fa-fw pe-2"></i>
+                                                                            Delete
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="tab-2">
+                                    <div class="row g-4">
+                                        <div class="col text-center">
+                                            {% include 'partials/empty_project_tab.html' %}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="tab-3">
+                                    <div class="row g-4">
+                                        <div class="col text-center">
+                                            {% include 'partials/empty_project_tab.html' %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

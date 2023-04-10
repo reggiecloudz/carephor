@@ -13,12 +13,54 @@
     src: url('../fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
 }
 
-.shakespeare {
-    color: #63A0C1;
+:root {
+    /* custom theme */
+    --paynes-grey: #373a51;
+    --valhalla: #2c2e41;
+    --link-water: #d1d8e0;
+    --london-hue: #ad88b0;
+    --deluge: #8874a4;
+    --kimberly: #6D5D83;
+    --bossanova: #4a404e;
+    --racing-green: #242a29;
+    --revolver: #36353c;
+    --pearl: #f8f5f2;
+    --complementary: #7488A4;
+
+    --paynes-grey-rgb: 55, 58, 81;
+    --valhalla-rgb: 44, 46, 65;
+    --link-water-rgb: 209, 216, 224;
+    --london-hue-rgb: 173, 136, 176;
+    --deluge-rgb: 136, 116, 164;
+    --kimberly-rgb: 109, 93, 131;
+    --bossanova-rgb: 74, 64, 78;
+    --racing-green-rgb: 36, 42, 41;
+    --pearl-rgb: 248, 245, 242;
+    --complementary-rgb: 116, 136, 164;
+
+
+    /* general elements */
+    --bs-link-color: var(--deluge);
+    --bs-link-color-rgb: var(--deluge-rgb);
+    --bs-link-decoration: none;
+    --bs-link-hover-color: var(--kimberly);
+    --bs-primary: var(--deluge);
+    --bs-primary-rgb: var(--deluge-rgb);
+    --bs-secondary: var(--complementary);
+    --bs-secondary-rgb: var(--complementary-rgb);
 }
 
 body {
     font-family: "Montserrat Regular" !important;
+    background-color: var(--pearl) !important;
+}
+
+main {
+    background-color: var(--bs-body-bg);
+}
+
+a:hover {
+    color: var(--kimberly-rgb) !important;
 }
 
 h1,
@@ -28,10 +70,7 @@ h4,
 h5,
 h6 {
     font-family: 'Montserrat Light' !important;
-}
-
-.silver-tree {
-    color: #6FBC97;
+    color: var(--revolver);
 }
 
 .montserrat {
@@ -39,50 +78,122 @@ h6 {
 }
 
 .font-shadow {
-    text-shadow: .5px .5px .5px #232322;
+    color: rgb(126, 143, 153);
+    text-shadow: .5px .5px .5px var(--racing-green);
+}
+
+.btn-link:hover {
+    color: var(--kimberly) !important;
+}
+
+.pagination-light .page-link:hover {
+    background-color: var(--bs-link-hover-color);
+    border-color: var(--bs-link-hover-color);
+    color: var(--pearl) !important;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--kimberly);
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    color: var(--kimberly);
+    background-color: var(--link-water);
 }
 
 .theme-gradient {
-    background: rgb(99,160,193);
-    background: -moz-linear-gradient(0deg, rgba(99,160,193,1) 0%, rgba(111,188,151,1) 100%);
-    background: -webkit-linear-gradient(0deg, rgba(99,160,193,1) 0%, rgba(111,188,151,1) 100%);
-    background: linear-gradient(0deg, rgba(99,160,193,1) 0%, rgba(111,188,151,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#63a0c1",endColorstr="#6fbc97",GradientType=1);
+    background: var(--paynes-grey);
+    background: -moz-linear-gradient(0deg, rgba(var(--paynes-grey-rgb), 1) 0%, rgba(var(--valhalla-rgb),1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba((var(--paynes-grey-rgb)), 1) 0%, rgba(var(--valhalla-rgb),1) 100%);
+    background: linear-gradient(0deg, rgba(var(--paynes-grey-rgb), 1) 0%, rgba(var(--valhalla-rgb),1) 100%);
+    /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#63a0c1",endColorstr="#6fbc97",GradientType=1); */
+}
+
+.cover-gradient {
+    background-color: var(--london-hue); background-image: linear-gradient(315deg, var(--bossanova) 0%, var(--london-hue) 74%);
 }
 
 .card.card-overlay-bottom:before {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#22242e)) !important;
-    background-image: linear-gradient(180deg, transparent, #22242e) !important;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(var(--valhalla))) !important;
+    background-image: linear-gradient(180deg, transparent, var(--valhalla)) !important;
 }
 
 .img-cover {
-  -o-object-fit: cover;
-  object-fit: cover
+  -o-object-fit: cover !important;
+  object-fit: cover !important;
 }
 
-.btn-shakespeare {
-    background-color: #63A0C1;
+.nav.nav-bottom-line .nav-link.active {
+    background: transparent;
+    color: var(--kimberly);
+    border-bottom: 3px solid var(--kimberly);
 }
 
-.btn-shakespeare:hover {
-    background-color: #4F809A;
+.bg-complementary {
+    --bs-bg-opacity: 1;
+    background-color: rgb(var(--complementary-rgb));
 }
 
-:root {
-    --bs-link-color: #63A0C1;
-    --bs-link-color-rgb: 99,160,193;
-    --bs-link-decoration: none;
-    --bs-link-hover-color: #4F809A;
+.btn-complementary {
+    background-color: var(--complementary) !important;
+    color: var(--pearl);
 }
 
-
-/* .btn-primary-soft {
-  color: #0f6fec;
-  background-color: rgba(15, 111, 236, 0.1);
+.text-complementary {
+    --bs-text-opacity: 1;
+    color: rgb(var(--complementary-rgb));
 }
+
+a.nav-link.text-light-emphasis:hover {
+    color: var(--kimberly) !important;
+}
+
+.btn-primary {
+    background-color: var(--deluge) !important;
+    color: var(--pearl) !important;
+    border: var(--deluge) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--kimberly) !important;
+    color: var(--pearl) !important;
+}
+
 
 .btn-primary-soft:active, .btn-primary-soft:hover, .btn-primary-soft:focus {
-  color: #fff !important;
-  background-color: #0f6fec !important;
-  border-color: #0f6fec !important;
-} */
+    color: var(--pearl) !important;
+    background-color: var(--deluge) !important;
+    border-color: var(--deluge) !important;
+}
+
+.btn-primary-soft {
+    color: var(--deluge);
+    background-color: rgba(var(--deluge-rgb), 0.1);
+}
+
+.btn-complementary-soft:active, .btn-complementary-soft:hover, .btn-complementary-soft:focus {
+    color: #fff !important;
+    background-color: var(--complementary) !important;
+    border-color: var(--complementary-rgb) !important;
+}
+
+.btn-complementary-soft {
+    color: var(--complementary);
+    background-color: rgba(var(--complementary-rgb), 0.1);
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--deluge);
+    background-color: var(--bs-accordion-active-bg);
+    -webkit-box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+    box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+
+.form-check-input:checked {
+    background-color: var(--deluge);
+    border-color: var(--deluge);
+}
+
+.form-select {
+    background-color: #fff !important;
+}

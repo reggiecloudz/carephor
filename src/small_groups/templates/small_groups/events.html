@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ group.name }} Events
+{% endblock title %}
+
+{% block content %}
+{% include 'partials/appbar.html' %}
+<main>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-8 vstack gap-4">
+                {% include 'partials/group_header.html' with group=group page_name="Events" %}
+
+                <div class="row pb-2">
+                    <div class="card mb-3">
+                        <div class="card-header d-sm-flex align-items-center justify-content-between border-0 pb-0">
+                            <h5 class="card-title mb-sm-0">Events</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-sm-flex align-items-center">
+                                <!-- Avatar -->
+                                <div class="avatar avatar-xl">
+                                    <a href="#!">
+                                        <img class="avatar-img rounded border border-white border-3" src="{% static 'assets/images/events/01.jpg' %}" alt="">
+                                    </a>
+                                </div>
+                                <div class="ms-sm-4 mt-2 mt-sm-0">
+                                    <!-- Info -->
+                                    <h5 class="mb-1"><a href="event-details.html"> Comedy on the green </a></h5>
+                                    <ul class="nav nav-stack small">
+                                        <li class="nav-item">
+                                            <i class="bi bi-calendar-check pe-1"></i> Mon, Sep 25, 2020 at 9:30 AM
+                                        </li>
+                                        <li class="nav-item">
+                                            <i class="bi bi-geo-alt pe-1"></i> San francisco
+                                        </li>
+                                        <li class="nav-item">
+                                            <i class="bi bi-people pe-1"></i> 77 going
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Button -->
+                                <div class="d-flex mt-3 ms-auto">
+                                    <div class="dropdown">
+                                        <!-- Card share action menu -->
+                                        <button class="icon-md btn btn-secondary-soft" type="button" id="profileAction"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <!-- Card share action dropdown menu -->
+                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileAction">
+                                            <li><a class="dropdown-item" href="#"> <i class="bi bi-bookmark fa-fw pe-2"></i>Share profile in a
+                                                    message</a></li>
+                                            <li><a class="dropdown-item" href="#"> <i class="bi bi-file-earmark-pdf fa-fw pe-2"></i>Save your
+                                                    profile to PDF</a></li>
+                                            <li><a class="dropdown-item" href="#"> <i class="bi bi-lock fa-fw pe-2"></i>Lock profile</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#"> <i class="bi bi-gear fa-fw pe-2"></i>Profile settings</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-12">
+                        {% include 'partials/news_card.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% include 'partials/footer.html' %}
+{% endblock content %}

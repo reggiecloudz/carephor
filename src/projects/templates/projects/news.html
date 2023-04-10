@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ project.name }} News
+{% endblock title %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/tiny-slider/dist/tiny-slider.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/dropzone/dist/dropzone.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/glightbox-master/dist/css/glightbox.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/choices.js/public/assets/styles/choices.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/flatpickr/dist/flatpickr.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/plyr/plyr.css' %}">
+{% endblock stylesheets %}
+
+{% block content %}
+{% include 'partials/appbar.html' %}
+<main>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-8 vstack gap-4">
+                {% include 'partials/project_header.html' with project=project page_name="News" %}
+
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_member and request.user.member in project.members.all %}
+                        {% include 'partials/share_form.html' %}
+                    {% endif %}
+                {% endif %}
+
+                {% include 'partials/post_list.html' %}
+            </div>
+            <div class="col-lg-4">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-12">
+                        {% include 'partials/project_stats.html' %}
+                    </div>
+                    <div class="col-md-6 col-lg-12">
+                        {% include 'partials/news_card.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% include 'partials/footer.html' %}
+{% if request.user.is_authenticated %}
+    {% if request.user.is_member and request.user.member in group.members.all %}
+        {% include '../modals/feed-modal.html' %}
+        {% include '../modals/photo-modal.html' %}
+        {% include '../modals/video-modal.html' %}
+        {% include '../modals/question-modal.html' %}
+    {% endif %}
+{% endif %}
+{% endblock content %}
+
+{% block javascripts %}
+<script src="{% static 'assets/vendor/tiny-slider/dist/tiny-slider.js' %}"></script>
+<script src="{% static 'assets/vendor/dropzone/dist/dropzone.js' %}"></script>
+<script src="{% static 'assets/vendor/choices.js/public/assets/scripts/choices.min.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox-master/dist/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/flatpickr/dist/flatpickr.min.js' %}"></script>
+<script src="{% static 'assets/vendor/plyr/plyr.js' %}"></script>
+{% endblock javascripts %}

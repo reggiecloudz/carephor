@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Projects
+{% endblock title %}
+
+{% block content %}
+{% include 'partials/appbar.html' %}
+<main>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-12 vstack gap-4">
+                <div class="card card-body">
+                    {% include 'partials/project_search.html' %}
+                </div>
+            </div>
+            <div class="col-12">
+                {% include 'partials/project_search_tabs.html' with projects=projects %}
+            </div>
+        </div>
+    </div>
+</main>
+{% include 'partials/footer.html' %}
+{% endblock content %}

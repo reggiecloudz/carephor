@@ -10,8 +10,10 @@
     <main class="mb-0" role="main">
         <div class="mt-n4">
             {% include 'partials/home_hero.html' %}
-            {% include 'partials/home_campaigns.html' with campaigns=campaigns %}
+            {% include 'partials/home_projects.html' with projects=projects %}
             {% include 'partials/home_causes.html' %}
+            {% include 'partials/home_groups.html' with groups=groups %}
         </div>
     </main>
+    {% include 'partials/footer.html' %}
 {% endblock content %}

@@ -1,0 +1,111 @@
+{% load static %}
+
+<div class="card">
+    <!-- Cover image -->
+    <div class="h-200px rounded-top img-cover"
+        style="background-image:url({{ group.photo.url }}); background-position: center; background-size: cover; background-repeat: no-repeat;">
+    </div>
+    <!-- Card body START -->
+    <div class="card-body py-0">
+        <div class="d-sm-flex align-items-start text-center text-sm-start">
+            <div>
+                <!-- Avatar -->
+                <div class="avatar avatar-xxl mt-n5 mb-3">
+                    <img class="avatar-img rounded-circle border border-white border-3"
+                        src="{{ group.creator.identity.photo.url }}" alt="">
+                </div>
+            </div>
+            <div class="ms-sm-4 mt-sm-3">
+                <!-- Info -->
+                <h1 class="mb-0 h5">{{ group.name }} <i class="bi bi-patch-check-fill text-success small"></i></h1>
+                <p>
+                    <i class="fa-solid fa-user-tie me-1"></i> {{ group.creator.identity.name }}
+                </p>
+            </div>
+            <!-- Button -->
+            <div class="d-flex mt-3 justify-content-center ms-sm-auto">
+                <button class="btn btn-complementary-soft me-2" type="button"> 
+                    <i class="bi bi-person-plus pe-1"></i> 
+                    Join Us
+                </button>
+                <div class="dropdown">
+                    <!-- Card share action menu -->
+                    <button class="icon-md btn btn-complementary-soft" type="button" id="profileAction2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-three-dots"></i>
+                    </button>
+                    <!-- Card share action dropdown menu -->
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileAction2">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-envelope-paper-heart fa-fw pe-2"></i>
+                                Share project in a message
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-file-earmark-pdf fa-fw pe-2"></i>
+                                Save project to PDF
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-flag fa-fw pe-2"></i>
+                                Report
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- List profile -->
+        <ul class="list-inline mb-0 text-center text-sm-start mt-3 mt-sm-0">
+            <li class="list-inline-item">
+                <i class="fa-solid fa-tag me-1"></i> Category?
+            </li>
+            <li class="list-inline-item">
+                <i class="fa-solid fa-map-location-dot me-1"></i> Los Angeles, CA
+            </li>
+            <li class="list-inline-item">
+                <i class="fa-solid fa-calendar-plus me-1"></i> Started on {{ group.created_at|date:"M d, Y" }}
+            </li>
+        </ul>
+    </div>
+    <!-- Card body END -->
+    <div class="card-footer mt-3 pt-2 pb-0">
+        <!-- Nav profile pages -->
+        <ul class="nav nav-bottom-line align-items-center justify-content-center justify-content-md-start mb-0 border-0">
+            <li class="nav-item"> 
+                {% if page_name and page_name == "Posts" %}
+                    <a class="nav-link active" href="{% url 'groups:details' group.id %}">Posts</a>
+                {% else %}
+                    <a class="nav-link" href="{% url 'groups:details' group.id %}">Posts</a>
+                {% endif %}
+            </li>
+            <li class="nav-item"> 
+                {% if page_name and page_name == "Events" %}
+                <a class="nav-link active" href="{% url 'groups:events' group.id %}">Events</a> 
+                {% else %}
+                <a class="nav-link" href="{% url 'groups:events' group.id %}">Events</a>
+                {% endif %}
+            </li>
+            
+            <li class="nav-item"> 
+                {% if page_name and page_name == "Members" %}
+                <a class="nav-link active" href="{% url 'groups:members' group.id %}"> 
+                    Members 
+                    <span class="badge bg-primary bg-opacity-10 text-primary small">250</span> 
+                </a> 
+                {% else %}
+                <a class="nav-link" href="{% url 'groups:members' group.id %}"> 
+                    Members 
+                    <span class="badge bg-primary bg-opacity-10 text-primary small">250</span> 
+                </a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</div>

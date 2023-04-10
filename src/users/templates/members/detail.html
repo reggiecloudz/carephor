@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}
     {{ request.user.name }}
 {% endblock title %}
@@ -22,7 +23,7 @@
                     {% include 'partials/member_nav.html' %}
                 </div>
 
-                <div class="col-md-8 col-lg-6 vstack gap-4">
+                <div class="col-lg-9 vstack gap-4">
                     <div class="card">
                         <div class="card-header border-0 pb-0">
                             <h5 class="card-title"> Member Info</h5>
@@ -231,22 +232,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3">
-                    <div class="row g-4">
-                        <!-- Card follow START -->
-                        <div class="col-sm-6 col-lg-12">
-                            {% include 'partials/follow_card.html' %}
-                        </div>
-                        <!-- Card follow START -->
-    
-                        <!-- Card News START -->
-                        <div class="col-sm-6 col-lg-12">
-                            {% include 'partials/news_card.html' %}
-                        </div>
-                        <!-- Card News END -->
                     </div>
                 </div>
             </div>

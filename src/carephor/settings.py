@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'tinymce',
     'pages',
     'users',
-    'campaigns',
+    'classifications',
+    'projects',
+    'events',
+    'fundraisers',
+    'small_groups',
 ]
 
 MIDDLEWARE = [

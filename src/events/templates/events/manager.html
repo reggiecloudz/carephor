@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ event.name }} Manager
+{% endblock title %}
+
+{% block content %}
+    {% include 'partials/appbar.html' %}
+
+    <main>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <!-- Advanced filter responsive toggler START -->
+                    <div class="d-flex align-items-center d-lg-none">
+                        <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+                            <span class="btn btn-primary"><i class="fa-solid fa-sliders-h"></i></span>
+                            <span class="h6 mb-0 fw-bold d-lg-none ms-2">Project</span>
+                        </button>
+                    </div>
+                    <!-- Advanced filter responsive toggler END -->
+    
+                    {% include 'partials/project_nav.html' with project=event.owner %}
+                </div>
+                <div class="col-lg-9 vstack gap-4">
+                    <div class="card h-100">
+                        <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+                            <h1 class="h4 card-title">{{ event.name }}</h1>
+                        </div>
+                        <div class="card-body">
+                            <ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+                                <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1"> Edit </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2"> Schedule </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-3"> Invitations </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-4"> Attending </a> </li>
+                            </ul>
+                            <div class="tab-content mb-3 pb-0">
+                                <div class="tab-pane fade show active" id="tab-1">
+                                    <div class="row g-4">
+                                        <div class="col">
+                                            {% include 'partials/event_form.html' with form=form %}
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="tab-pane fade" id="tab-2">
+                                    <div class="row g-4">
+                                        <div class="col">
+                                            {% include 'partials/event_schedule.html' with event=event %}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="tab-3">
+                                    <div class="row g-4">
+                                        <div class="col">
+                                            {% include 'partials/event_invitations.html' with event=event %}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="tab-4">
+                                    <div class="row g-4">
+                                        <div class="col">
+                                            {% include 'partials/event_attendees.html' with event=event %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% include 'partials/footer.html' %}
+{% endblock content %}

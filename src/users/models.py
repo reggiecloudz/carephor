@@ -55,7 +55,9 @@ class User(AbstractUser):
 class Member(models.Model):
     occupation = models.CharField(_("occupation"), max_length=255, default="Not Provided", null=False, blank=True)
     identity = models.OneToOneField(User, verbose_name=_("identity"), on_delete=models.CASCADE, related_name="member", null=False, blank=True)
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
     class Meta:
         verbose_name = _("member")
         verbose_name_plural = _("members")

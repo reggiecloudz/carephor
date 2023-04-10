@@ -1,0 +1,74 @@
+{% load static %}
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <!-- Title -->
+                <h4>Explore Groups </h4>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for group in groups %}
+            <div class="col-md-4">
+                <!-- Card START -->
+                <div class="card">
+                    <div class="h-80px rounded-top cover-gradient">
+                    </div>
+                    <!-- Card body START -->
+                    <div class="card-body text-center pt-0">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-lg mt-n5 mb-3">
+                            <a href="group-details.html"><img
+                                    class="avatar-img rounded-circle border border-white border-3 bg-mode"
+                                    src="{{ group.photo.url }}" alt=""></a>
+                        </div>
+                        <!-- Info -->
+                        <h5 class="mb-0"> <a href="{% url 'groups:details' group.id %}">{{ group.name }}</a> </h5>
+                        <small> <i class="bi bi-lock pe-1"></i> Public Group</small>
+                        <!-- Group stat START -->
+                        <div class="hstack gap-2 gap-xl-3 justify-content-center mt-3">
+                            <!-- Group stat item -->
+                            <div>
+                                <h6 class="mb-0">32k</h6>
+                                <small>Members</small>
+                            </div>
+                            <!-- Divider -->
+                            <div class="vr"></div>
+                            <!-- Group stat item -->
+                            <div>
+                                <h6 class="mb-0">20</h6>
+                                <small>Post per day</small>
+                            </div>
+                        </div>
+                        <!-- Group stat END -->
+                        <!-- Avatar group START -->
+                        <ul class="avatar-group list-unstyled align-items-center justify-content-center mb-0 mt-3">
+                            <li class="avatar avatar-xs">
+                                <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/02.jpg' %}" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-xs">
+                                <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/03.jpg' %}" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-xs">
+                                <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/04.jpg' %}" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-xs">
+                                <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/05.jpg' %}" alt="avatar">
+                            </li>
+                            <li class="avatar avatar-xs">
+                                <div class="avatar-img rounded-circle bg-primary"><span
+                                        class="smaller text-white position-absolute top-50 start-50 translate-middle">+22</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- Avatar group END -->
+                    </div>
+                    <!-- Card body END -->
+                </div>
+                <!-- Card END -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

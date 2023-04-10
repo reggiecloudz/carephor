@@ -1,0 +1,28 @@
+<div class="card card-body">
+    <div class="d-flex mb-3">
+      <!-- Avatar -->
+      <div class="avatar avatar-xs me-2">
+        <a href="#"> <img class="avatar-img rounded-circle" src="{{ request.user.photo.url }}" alt=""> </a>
+      </div>
+      <!-- Post input -->
+      <form class="w-100">
+        <input class="form-control pe-4 border-0" placeholder="Share your thoughts..." data-bs-toggle="modal" data-bs-target="#modalCreateFeed">
+      </form>
+    </div>
+    <!-- Share feed toolbar START -->
+    <ul class="nav nav-pills nav-stack small fw-normal">
+      <li class="nav-item">
+        <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto"> <i class="bi bi-image-fill text-success pe-2"></i>Photo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionVideo"> <i class="bi bi-camera-reels-fill text-warning pe-2"></i>Video</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link bg-light py-1 px-2 mb-0" data-bs-toggle="modal" data-bs-target="#modalCreateEvents"> <i class="bi bi-bar-chart-fill text-danger pe-2"></i>Poll</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#modalAskQuestion"> <i class="bi bi-patch-question-fill text-info pe-2"></i>Question</a>
+      </li>
+    </ul>
+    <!-- Share feed toolbar END -->
+  </div>
