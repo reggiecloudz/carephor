@@ -1,0 +1,25 @@
+<div class="modal fade" id="saveApplicantModal" tabindex="-1" aria-labelledby="saveApplicantLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="saveApplicantLabel">Apply</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="" id="applicant-form" method="post" action="{% url 'positions:apply' position.id %}" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.qualifications.errors }}
+                        <label class="form-label" for="{{ form.qualifications.id_for_label }}">Qualifications:</label>
+                        {{ form.qualifications }}
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="applicant-form" class="btn btn-primary">Save now</button>
+                <button type="button" class="btn btn-cta-soft me-2" data-bs-dismiss="modal"> Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="card h-100">
+    <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+        <h1 class="h4 card-title">Positions</h1>
+        <!-- Button modal -->
+        <a class="btn btn-complementary-soft" href="#" data-bs-toggle="modal" data-bs-target="#savePositionModal">
+            <i class="fa-solid fa-plus pe-1"></i> Create position
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">People needed</th>
+                        <th scope="col">Positions filled</th>
+                        <th scope="col">Applicants</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for position in positions %}
+                    <tr>
+                        <td scope="row">{{ position.title }}</td>
+                        <td>{{ position.people_needed }}</td>
+                        <td>{{ position.positions_filled }}</td>
+                        <td>{{ position.applicants.count }}</td>
+                        <td>
+                            {% if position.open %}
+                            Open
+                            {% else %}
+                            Closed
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'positions:applicants' position.id %}">View</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

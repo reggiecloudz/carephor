@@ -1,0 +1,76 @@
+<div class="card h-100">
+    <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+        <h1 class="h4 card-title">Actions</h1>
+        <!-- Button modal -->
+        <a class="btn btn-complementary-soft" href="#" data-bs-toggle="modal" data-bs-target="#saveActionModal">
+            <i class="fa-solid fa-plus pe-1"></i> Create Action
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Label</th>
+                        <th scope="col">Start date</th>
+                        <th scope="col">Deadline</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for action in project.action_plan.all %}
+                    <tr>
+                        <td scope="row">{{ action.label|truncatechars:40 }}</td>
+                        <td>
+                            {{ action.start_date }}
+                        </td>
+                        <td>{{ action.deadline }}</td>
+                        <td>
+                            {% if action.complete %}
+                                Complete
+                            {% else %}
+                                Incomplete
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <!-- Card share action menu -->
+                                <button class="icon-sm btn btn-complementary-soft btn-sm" type="button" id="profileAction2" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <!-- Card share action dropdown menu -->
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileAction2">
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'actions:details' action.id %}">
+                                            <i class="bi bi-info-circle-fill fa-fw pe-2"></i>
+                                            Details
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-pencil-square fa-fw pe-2"></i>
+                                            Edit
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="bi bi-trash fa-fw pe-2"></i>
+                                            Delete
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

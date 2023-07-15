@@ -23,10 +23,10 @@
                 </div>
 
                 <div class="col-lg-9 vstack gap-4">
-                    {% include 'partials/project_tabs.html' %}
+                    {% include 'partials/project_tabs.html' with member=member %}
                 </div>
             </div>
         </div>
     </main>
-    {% include 'modals/new_project_modal.html' with form=form %}
+    {% include 'modals/save-project-modal.html' with form=form %}
 {% endblock content %}

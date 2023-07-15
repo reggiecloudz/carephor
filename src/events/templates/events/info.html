@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ request.user.name }} Calendar
+{% endblock title %}
+
+{% block styles %}
+<style>
+    #calendar {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+    {% include 'partials/appbar.html' %}
+    <main>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <!-- Advanced filter responsive toggler START -->
+                    <div class="d-flex align-items-center d-lg-none">
+                        <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+                            <span class="btn btn-primary"><i class="fa-solid fa-sliders-h"></i></span>
+                            <span class="h6 mb-0 fw-bold d-lg-none ms-2">Profile</span>
+                        </button>
+                    </div>
+                    <!-- Advanced filter responsive toggler END -->
+
+                    {% include 'partials/member_nav.html' %}
+                </div>
+
+                <div class="col-lg-9 vstack gap-4">
+                    <div class="card h-100">
+                        <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+                            <h1 class="h4 card-title">{{ event.name }}</h1>
+                        </div>
+                        <div class="card-body">
+                            <ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+                                <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1"> Details </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2"> Attending </a> </li>
+                            </ul>
+                    
+                            <div class="tab-content mb-0 pb-0">
+                                <div class="tab-pane fade show active" id="tab-1">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <a class="small text-secondary" href="#!">
+                                            <strong class="text-light-emphasis">Venue</strong>: {{ event.venue }}
+                                        </a>
+                                        <a class="small text-secondary" href="#!">
+                                            <strong class="text-light-emphasis">Location</strong>: {{ event.location }} 
+                                        </a>
+                                        <a class="small text-secondary" href="#!">
+                                            <strong class="text-light-emphasis">Start</strong>: {{ event.start_time }}
+                                        </a>
+                                        <a class="small text-secondary" href="#!">
+                                            <strong class="text-light-emphasis">End</strong>: {{ event.end_time }} 
+                                        </a>
+                                        <a class="small text-secondary" href="#!">
+                                            <strong class="text-light-emphasis">Duration</strong>: 0 hrs
+                                        </a>
+                                    </div>
+
+                                    <div class="row g-3 my-1">
+                                        <div class="col-12 mb-2">
+                                            <p>{{ event.details }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-start justify-content-end">
+                                        <a class="small text-secondary me-2" href="#!">
+                                            <strong class="text-light-emphasis">Visibility</strong>: {{ event.visibility }}
+                                        </a>
+                                        <a class="small text-secondary me-2" href="#!">
+                                            <strong class="text-light-emphasis">Type</strong>: {{ event.type }} 
+                                        </a>
+                                        <a class="small text-secondary" href="#!">
+                                            <strong class="text-light-emphasis">Format</strong>: {{ event.format }}
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="tab-2">
+                                    <div class="row g-4">
+                                        <div class="col">
+                                            ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

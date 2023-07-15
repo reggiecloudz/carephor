@@ -1,0 +1,97 @@
+{% load static %}
+
+<div class="card h-100">
+    <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+        <h1 class="h4 card-title">{{ assignment.action.label }}</h1>
+        <a class="btn btn-complementary-soft" href="{% url 'members:assignments' action.id %}"> 
+            <i class="fa-solid fa-compass pe-1"></i> My assignments
+        </a>
+    </div>
+    <div class="card-body">
+        <ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+            <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1"> Details </a> </li>
+            <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2"> Team </a> </li>
+        </ul>
+
+        <div class="tab-content mb-0 pb-0">
+            <div class="tab-pane fade show active" id="tab-1">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a class="small text-secondary" href="#!">
+                        Started: 
+                        {% if action.start_date == None %}
+                            Not started
+                        {% else %}
+                            {{ action.start_date }}
+                        {% endif %}
+                    </a>
+                    <a class="small text-secondary" href="#!">
+                       Deadline: {{ action.deadline }} 
+                    </a>
+                    <a class="small text-secondary" href="#!">
+                        Completion:
+                        {% if action.completed_at == None %}
+                            Not started
+                        {% else %}
+                            {{ action.completed_at }}
+                        {% endif %}
+                     </a>
+                     <a class="small text-secondary" href="#!">
+                        Status: 
+                        {% if action.complete %}
+                            Complete
+                        {% else %}
+                            Incomplete
+                        {% endif %}
+                     </a>
+                </div>
+                <div class="row g-3 mt-1">
+                    <div class="col-12">
+                        <p>{{ action.details }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab-2">
+                <div class="row g-4">
+                    <div class="col">
+                        <div class="d-md-flex align-items-center mb-4">
+                            <div class="avatar me-3 mb-3 mb-md-0">
+                                <a href="#!"> 
+                                    <img class="avatar-img rounded-circle" src="{{ action.project.manager.identity.photo.url }}" alt=""> 
+                                </a>
+                            </div>
+                            <div class="w-100">
+                                <div class="d-sm-flex align-items-start">
+                                    <h6 class="mb-0"><a href="#!">{{ action.project.manager.identity.name }} </a></h6>
+                                    <p class="small ms-sm-2 mb-0">Campaign Manager</p>
+                                </div>
+                            </div>
+                            <div class="ms-md-auto d-flex">
+                                <button class="btn btn-primary-soft btn-sm mb-0 me-2"> Message </button>
+                              </div>
+                        </div>
+                        {% for assignee in action.assignees %}
+                            {% if request.user.member.id != assignee.id %}
+                            <div class="d-md-flex align-items-center mb-4">
+                                <div class="avatar me-3 mb-3 mb-md-0">
+                                    <a href="#!"> 
+                                        <img class="avatar-img rounded-circle" src="{{ assignee.photo }}" alt=""> 
+                                    </a>
+                                </div>
+                                <div class="w-100">
+                                    <div class="d-sm-flex align-items-start">
+                                        <h6 class="mb-0"><a href="#!">{{ assignee.name }} </a></h6>
+                                        <p class="small ms-sm-2 mb-0">{{ assignee.position }}</p>
+                                    </div>
+                                </div>
+                                <div class="ms-md-auto d-flex">
+                                    <button class="btn btn-primary-soft btn-sm mb-0 me-2"> Message </button>
+                                  </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

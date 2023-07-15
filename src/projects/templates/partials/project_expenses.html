@@ -63,17 +63,5 @@
                 </div>
             </div>
         </div>
-
-        {% if request.user.is_authenticated %}
-            {% if request.user.is_member and project.manager == request.user.member %}
-            <div class="position-relative">
-                <button class="btn btn-dashed rounded w-100" type="button" data-bs-toggle="modal" data-bs-target="#saveExpenditureModal"> 
-                    <i class="bi bi-plus-circle-dotted me-1"></i>
-                    Add a expenditure
-                </button>
-            </div>
-            {% endif %}
-        {% endif %}
-        
     </div>
 </div>

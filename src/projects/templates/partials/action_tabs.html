@@ -1,0 +1,187 @@
+{% load static %}
+
+<div class="card h-100">
+    <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+        <h1 class="h4 card-title">{{ action.label }}</h1>
+        <a class="btn btn-complementary-soft" href="#"> 
+            <i class="fa-solid fa-compass pe-1"></i> All actions
+        </a>
+    </div>
+    <div class="card-body">
+        <ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+            <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1"> Details </a> </li>
+            <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2"> Update </a> </li>
+            <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-3"> Subtasks </a> </li>
+            <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-4"> Assign </a> </li>
+            <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-5"> Complete </a> </li>
+        </ul>
+
+        <div class="tab-content mb-0 pb-0">
+            <div class="tab-pane fade show active" id="tab-1">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a class="small text-secondary" href="#!">
+                        Start date: {{ action.start_date }}
+                    </a>
+                    <a class="small text-secondary" href="#!">
+                       Deadline: {{ action.deadline }} 
+                    </a>
+                    <a class="small text-secondary" href="#!">
+                        Completion:
+                        {% if action.completed_at == None %}
+                            Incomplete
+                        {% else %}
+                            {{ action.completed_at }}
+                        {% endif %}
+                     </a>
+                     <a class="small text-secondary" href="#!">
+                        Status: 
+                        {% if action.complete %}
+                            Complete
+                        {% else %}
+                            Incomplete
+                        {% endif %}
+                     </a>
+                </div>
+                <div class="row g-3 mt-1">
+                    <div class="col-12 mb-2">
+                        <p>{{ action.details }}</p>
+                    </div>
+                    {% if action.clocked_start == None %}
+                        <div class="col-12 mb-2">
+                            <a class="btn btn-primary btn-block w-100" href="{% url 'actions:start' action.id %}" role="button">Start</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="tab-2">
+                <form id="action-form" method="post" action="#" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.label.errors }}
+                        <label class="form-label" for="{{ form.label.id_for_label }}">Label:</label>
+                        {{ form.label }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.details.errors }}
+                        <label class="form-label" for="{{ form.details.id_for_label }}">Details:</label>
+                        {{ form.details }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.start_date.errors }}
+                        <label class="form-label" for="{{ form.start_date.id_for_label }}">Start date:</label>
+                        {{ form.start_date }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.deadline.errors }}
+                        <label class="form-label" for="{{ form.deadline.id_for_label }}">Deadline:</label>
+                        {{ form.deadline }}
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab-pane fade" id="tab-3">
+                <div class="card border-0 bg-transparent">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Label</th>
+                                        <th scope="col">Start date</th>
+                                        <th scope="col">Deadline</th>
+                                        <th scope="col">Completion</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for action in project.action_plan.all %}
+                                    <tr>
+                                        <td scope="row">{{ action.label|truncatechars:30 }}</td>
+                                        <td>
+                                            {% if action.start_date == None %}
+                                                Not started
+                                            {% else %}
+                                                {{ action.start_date }}
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ action.deadline }}</td>
+                                        <td>
+                                            {% if action.completed_at == None %}
+                                                Not started
+                                            {% else %}
+                                                {{ action.completed_at }}
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if action.complete %}
+                                                Complete
+                                            {% else %}
+                                                Incomplete
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'actions:details' action.id %}">Details</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a class="btn btn-complementary-soft" href="#" data-bs-toggle="modal" data-bs-target="#saveActionModal">
+                                <i class="fa-solid fa-plus pe-1"></i> Create Subtasks
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-pane fade" id="tab-4">
+                <div class="row g-4">
+                    <div class="col">
+                        <form method="post" action="{% url 'actions:assign' action.id %}">
+                            {% csrf_token %}
+                            {% for staffer in staff %}
+                                <div class="form-check form-check-inline">
+                                    <input 
+                                        class="form-check-input" 
+                                        type="checkbox" 
+                                        name="assignee" 
+                                        id="assignee-{{ staffer.member.id }}" 
+                                        value="{{ staffer.member.id }}"
+                                        {% for assignee in action.assignees %}
+                                            {% if staffer.member.id == assignee.id  %}checked{% endif %}
+                                        {% endfor %}
+                                    />
+                                    
+                                    <label class="form-check-label" for="assignee-{{ staffer.member.id }}">
+                                        <strong>{{ staffer.member.identity.name }}</strong> - {{ staffer.position }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                            <button type="submit" class="btn btn-primary btn-block w-100 my-3">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="tab-5">
+                <div class="row g-4">
+                    <div class="col">
+                        <form method="post" action="{% url 'actions:complete' action.id %}">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                {{ cform.results.errors }}
+                                <label class="form-label" for="{{ cform.results.id_for_label }}">Results:</label>
+                                {{ cform.results }}
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block w-100 my-3">Complete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

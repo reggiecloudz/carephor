@@ -1,0 +1,35 @@
+<div class="modal fade" id="saveGroupModal" tabindex="-1" aria-labelledby="saveGroupLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="saveGroupLabel">Create Group</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="" id="group-form" method="post" action="{% url 'members:group_create' request.user.member.id %}" novalidate enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.name.errors }}
+                        <label class="form-label" for="{{ form.name.id_for_label }}">Name:</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.about.errors }}
+                        <label class="form-label" for="{{ form.about.id_for_label }}">About:</label>
+                        {{ form.about }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.photo.errors }}
+                        <label class="form-label" for="{{ form.photo.id_for_label }}">Photo:</label>
+                        {{ form.photo }}
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="group-form me-2" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-cta-soft" data-bs-dismiss="modal"> Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,210 +14,58 @@
 
         <div class="tab-content mb-0 pb-0">
             <div class="tab-pane fade show active" id="tab-1">
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/01.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
+                {% for pm in members %}
+                    {% if pm.role == "Manager" %}
+                        <div class="d-md-flex align-items-center mb-4">
+                            <!-- Avatar -->
+                            <div class="avatar me-3 mb-3 mb-md-0">
+                                <a href="#!"> 
+                                    <img class="avatar-img rounded-circle" src="{{ pm.member.identity.photo.url }}" alt=""> 
+                                </a>
+                            </div>
+                            <!-- Info -->
+                            <div class="w-100">
+                                <div class="d-sm-flex align-items-start">
+                                    <h6 class="mb-0"><a href="#!">{{ pm.member.identity.name }}</a></h6>
+                                    <p class="small ms-sm-2 mb-0">{{ pm.position }}</p>
+                                </div>
+                            </div>
+                            <!-- Button -->
+                            <div class="ms-md-auto d-flex">
+                                <button class="btn btn-primary-soft btn-sm mb-0 me-2"> Message </button>
+                                <button class="btn btn-complementary-soft btn-sm mb-0"> Remove </button>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/02.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Carolyn Ortiz </a></h6>
-                            <p class="small ms-sm-2 mb-0">Web Developer | Freelancer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/03.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/04.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/05.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-                        
+                    {% endif %}
+                {% endfor %}
             </div>
 
             <div class="tab-pane fade" id="tab-2">
 
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/01.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
+                {% for pm in members %}
+                    {% if pm.role == "Staff" %}
+                        <div class="d-md-flex align-items-center mb-4">
+                            <!-- Avatar -->
+                            <div class="avatar me-3 mb-3 mb-md-0">
+                                <a href="#!"> 
+                                    <img class="avatar-img rounded-circle" src="{{ pm.member.identity.photo.url }}" alt=""> 
+                                </a>
+                            </div>
+                            <!-- Info -->
+                            <div class="w-100">
+                                <div class="d-sm-flex align-items-start">
+                                    <h6 class="mb-0"><a href="#!">{{ pm.member.identity.name }}</a></h6>
+                                    <p class="small ms-sm-2 mb-0">{{ pm.position }}</p>
+                                </div>
+                            </div>
+                            <!-- Button -->
+                            <div class="ms-md-auto d-flex">
+                                <button class="btn btn-primary-soft btn-sm mb-0 me-2"> Message </button>
+                                <button class="btn btn-complementary-soft btn-sm mb-0"> Remove </button>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/02.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Carolyn Ortiz </a></h6>
-                            <p class="small ms-sm-2 mb-0">Web Developer | Freelancer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/03.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/04.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/05.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
+                    {% endif %}
+                {% endfor %}
                         
             </div>
             
@@ -228,86 +76,6 @@
                     <!-- Avatar -->
                     <div class="avatar me-3 mb-3 mb-md-0">
                         <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/01.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/02.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Carolyn Ortiz </a></h6>
-                            <p class="small ms-sm-2 mb-0">Web Developer | Freelancer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/03.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/04.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/05.jpg' %}" alt=""> </a>
                     </div>
                     <!-- Info -->
                     <div class="w-100">
@@ -346,88 +114,8 @@
                         <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
                     </div>
                 </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/02.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Carolyn Ortiz </a></h6>
-                            <p class="small ms-sm-2 mb-0">Web Developer | Freelancer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/03.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/04.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
-
-                <!-- Connections Item -->
-                <div class="d-md-flex align-items-center mb-4">
-                    <!-- Avatar -->
-                    <div class="avatar me-3 mb-3 mb-md-0">
-                        <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/05.jpg' %}" alt=""> </a>
-                    </div>
-                    <!-- Info -->
-                    <div class="w-100">
-                        <div class="d-sm-flex align-items-start">
-                            <h6 class="mb-0"><a href="#!">Lori Ferguson </a></h6>
-                            <p class="small ms-sm-2 mb-0">Full Stack Web Developer</p>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="ms-md-auto d-flex">
-                        <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove </button>
-                        <button class="btn btn-primary-soft btn-sm mb-0"> Message </button>
-                    </div>
-                </div>
                         
-            </div>>
+            </div>
         </div>
     </div>
 </div>

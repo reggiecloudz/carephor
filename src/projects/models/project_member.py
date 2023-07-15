@@ -28,3 +28,6 @@ class ProjectMember(models.Model):
 
     def get_absolute_url(self):
         return reverse("project_member_detail", kwargs={"pk": self.pk})
+
+    def get_members_by_role(self, role):
+        members = []

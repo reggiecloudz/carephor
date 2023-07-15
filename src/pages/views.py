@@ -9,8 +9,8 @@ def home(request):
     
     template_name='pages/home.html'
     context = {}
-    context["groups"] = SmallGroup.objects.all()[:3]
-    context["projects"] = Project.objects.all()
+    context["groups"] = SmallGroup.objects.all()[:4]
+    context["projects"] = Project.objects.all()[:4]
     return render(request, template_name, context)
 
 def not_found(request):

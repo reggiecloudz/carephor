@@ -3,14 +3,16 @@ from django.contrib import admin
 from projects.models import (
     Project, 
     ProjectMember,
-    Task,
+    Action,
     Applicant,
     Expenditure,
-    Position)
+    Position,
+    Proposal)
 
 admin.site.register(Project)
 admin.site.register(ProjectMember)
-admin.site.register(Task)
+admin.site.register(Action)
 admin.site.register(Applicant)
 admin.site.register(Expenditure)
 admin.site.register(Position)
+admin.site.register(Proposal)

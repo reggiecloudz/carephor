@@ -17,22 +17,18 @@
 						<img class="avatar-img rounded-circle" src="{{ request.user.photo.url }}" alt="">
 					</div>
 					<!-- Feed box  -->
-					<form class="w-100">
-						<textarea class="form-control pe-4 fs-3 lh-1 border-0" rows="2" placeholder="Share your thoughts..."></textarea>
+					<form class="w-100" id="post-photo-form" method="post" action="{% url 'posts:photo_create' group.id %}" novalidate enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="mb-3">
+							{{ form.text.errors }}
+							{{ form.text }}
+						</div>
+						<div class="mb-3">
+							{{ form.images.errors }}
+							{{ form.images }}
+						</div>
 					</form>
 				</div>
-
-				<!-- Dropzone photo START -->
-				<div>
-					<label class="form-label">Upload attachment</label>
-					<div class="dropzone dropzone-default card shadow-none" data-dropzone='{"maxFiles":2}'>
-						<div class="dz-message">
-							<i class="bi bi-images display-3"></i>
-							<p>Drag here or click to upload photo.</p>
-						</div>
-					</div>
-				</div>
-				<!-- Dropzone photo END -->
 
 				</div>
 				<!-- Modal feed body END -->
@@ -40,8 +36,8 @@
 				<!-- Modal feed footer -->
 				<div class="modal-footer ">
 					<!-- Button -->
-						<button type="button" class="btn btn-danger-soft me-2" data-bs-dismiss="modal">Cancel</button>
-						<button type="button" class="btn btn-success-soft">Post</button>
+					<button type="submit" form="post-photo-form" class="btn btn-success-soft me-2">Post</button>
+					<button type="button" class="btn btn-cta-soft" data-bs-dismiss="modal">Cancel</button>
 				</div>
 				<!-- Modal feed footer -->
 		</div>

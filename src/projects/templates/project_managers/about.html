@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ project.name }}
+{% endblock title %}
+
+{% block content %}
+    {% include 'partials/appbar.html' %}
+    <main>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    {% include 'partials/project_nav.html' with project=project %}
+                </div>
+
+                <div class="col-lg-9 vstack gap-4">
+                    <div class="row g-4 pb-3">
+                        <div class="card h-100">
+                            <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+                                <h1 class="h4 card-title">{{ project.name }}</h1>
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar">
+                                    <div class="btn-group" role="group" aria-label="Button Group">
+                                        <a class="btn btn-primary-soft" href="{% url 'projects:details' project.id %}"> 
+                                            <i class="fa-solid fa-eye pe-1"></i> Profile
+                                        </a>
+                                        <a class="btn btn-complementary-soft" href="#"> 
+                                            <i class="fa-solid fa-compass pe-1"></i> All projects
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+                                    <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1"> Details </a> </li>
+                                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2"> Proposal </a> </li>
+                                </ul>
+                        
+                                <div class="tab-content mb-0 pb-0">
+                                    <div class="tab-pane fade show active" id="tab-1">
+                                        <form method="post" action="#" novalidate>
+                                            {% csrf_token %}
+                                            <div class="mb-3">
+                                                {{ project_form.name.errors }}
+                                                <label class="form-label" for="{{ project_form.name.id_for_label }}">Name:</label>
+                                                {{ project_form.name }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ project_form.photo.errors }}
+                                                <label class="form-label" for="{{ project_form.photo.id_for_label }}">Photo:</label>
+                                                {{ project_form.photo }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ project_form.cause.errors }}
+                                                <label class="form-label" for="{{ project_form.cause.id_for_label }}">Cause:</label>
+                                                {{ project_form.cause }}
+                                            </div>
+                                            <div class="d-grid gap-2">
+                                                <button type="button" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                        
+                                    <div class="tab-pane fade" id="tab-2">
+                                        <form method="post" action="#" novalidate>
+                                            {% csrf_token %}
+                                            <div class="mb-3">
+                                                {{ proposal_form.problem.errors }}
+                                                <label class="form-label" for="{{ proposal_form.problem.id_for_label }}">Problem:</label>
+                                                {{ proposal_form.problem }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ proposal_form.goal.errors }}
+                                                <label class="form-label" for="{{ proposal_form.goal.id_for_label }}">Goal:</label>
+                                                {{ proposal_form.goal }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ proposal_form.beneficiaries.errors }}
+                                                <label class="form-label" for="{{ proposal_form.beneficiaries.id_for_label }}">Beneficiaries:</label>
+                                                {{ proposal_form.beneficiaries }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ proposal_form.importance.errors }}
+                                                <label class="form-label" for="{{ proposal_form.importance.id_for_label }}">Importance:</label>
+                                                {{ proposal_form.importance }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ proposal_form.solution.errors }}
+                                                <label class="form-label" for="{{ proposal_form.solution.id_for_label }}">Solution:</label>
+                                                {{ proposal_form.solution }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ proposal_form.execution.errors }}
+                                                <label class="form-label" for="{{ proposal_form.execution.id_for_label }}">Execution:</label>
+                                                {{ proposal_form.execution }}
+                                            </div>
+                                            <div class="d-grid gap-2">
+                                              <button type="button" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

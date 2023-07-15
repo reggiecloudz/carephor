@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ project.name }}
+{% endblock title %}
+
+{% block content %}
+    {% include 'partials/appbar.html' %}
+    <main>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    {% include 'partials/project_nav.html' with project=project %}
+                </div>
+
+                <div class="col-lg-9 vstack gap-4">
+                    <div class="row g-4 pb-3">
+                        <div class="col-12">
+                            {% include 'partials/expenditure_table.html' with project=project %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include 'modals/save-expenditure-modal.html' with form=form project=project %}
+{% endblock content %}

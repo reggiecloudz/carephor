@@ -1,0 +1,39 @@
+<div class="modal fade" id="eventDetailsModal" tabindex="-1" aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-fullscreen">
+		<div class="modal-content">
+			<!-- Modal feed header START -->
+			<div class="modal-header">
+				<h5 class="modal-title" id="eventDetailsModalLabel">{{ event.name }}</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<!-- Modal feed header END -->
+
+			<!-- Modal feed body START -->
+			<div class="modal-body">
+				<ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+					<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1"> Details </a> </li>
+					<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2"> Attendees </a> </li>
+				</ul>
+			</div>
+			<!-- Modal feed body END -->
+
+			<!-- Modal feed footer -->
+			<div class="modal-footer row justify-content-between">
+				<!-- Select -->
+				<div class="col-lg-3">
+					<select class="form-select js-choice choice-select-text-none" data-position="top" data-search-enabled="false">
+						<option value="PB">Yes</option>
+						<option value="PV">No</option>
+						<option value="PV">Maybe so</option>
+					</select>
+				</div>
+				<div class="col-lg-8 text-sm-end">
+					<button type="button" class="btn btn-primary-soft me-2">Respond</button>
+					<button type="button" class="btn btn-cta-soft">Cancel</button>
+				</div>
+			</div>
+			<!-- Modal feed footer -->
+
+		</div>
+	</div>
+</div>

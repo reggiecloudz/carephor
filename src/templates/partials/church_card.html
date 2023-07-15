@@ -2,18 +2,15 @@
 
 <div class="card h-100">
     <div class="position-relative">
-        <img class="img-fluid rounded-top" src="{% static 'assets/images/events/01.jpg' %}" alt="">
-        <div class="badge bg-danger text-white mt-2 me-2 position-absolute top-0 end-0">
-            Online
-        </div>
+        <img class="img-fluid rounded-top" src="{{ church.photo.url }}" alt="">
     </div>
     <!-- Card body START -->
     <div class="card-body position-relative pt-0">
         <!-- Tag -->
-        <a class="btn btn-xs btn-primary mt-n3" href="event-details.html">Spa training </a>
-        <h6 class="mt-3"> <a href="event-details.html"> Bone thugs-n-harmony </a> </h6>
+        <a class="btn btn-xs btn-primary mt-n3" href="#">{{ church.denomination.name }} </a>
+        <h6 class="mt-3"> <a href="event-details.html"> {{ church.name }} </a> </h6>
         <!-- Date time -->
-        <p class="mb-0 small"> <i class="bi bi-calendar-check pe-1"></i> Mon, Sep 25, 2020 at 9:30 AM </p>
+        <p class="mb-0 small"> <i class="bi bi-calendar-check pe-1"></i> {{ church.created_at|date:"M d, Y" }} </p>
         <p class="small"> <i class="bi bi-geo-alt pe-1"></i> San francisco </p>
         <!-- Avatar group START -->
         <ul class="avatar-group list-unstyled align-items-center mb-0">
@@ -31,7 +28,7 @@
                         class="smaller text-white position-absolute top-50 start-50 translate-middle">+78</span></div>
             </li>
             <li class="ms-3">
-                <small> are attending</small>
+                <small> are members</small>
             </li>
         </ul>
         <!-- Avatar group END -->
@@ -39,12 +36,12 @@
         <div class="d-flex mt-3 justify-content-between">
             <!-- Interested button -->
             <div class="w-100">
-                <input type="checkbox" class="btn-check d-block" id="Interested1">
-                <label class="btn btn-sm btn-outline-success d-block" for="Interested1"><i
-                        class="fa-solid fa-thumbs-up me-1"></i> Interested</label>
+                <a class="btn btn-sm btn-primary-soft d-block" href="{% url 'churches:details' church.id %}">
+                    <i class="fa-solid fa-heart me-1"></i> Interested
+                </a>
             </div>
             <div class="dropdown ms-3">
-                <a href="#" class="btn btn-sm btn-primary-soft" id="eventActionShare" data-bs-toggle="dropdown"
+                <a href="#" class="btn btn-sm btn-cta-soft" id="eventActionShare" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <i class="bi bi-share-fill"></i>
                 </a>

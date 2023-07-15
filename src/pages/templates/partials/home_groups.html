@@ -10,7 +10,7 @@
         </div>
         <div class="row g-4">
             {% for group in groups %}
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <!-- Card START -->
                 <div class="card">
                     <div class="h-80px rounded-top cover-gradient">
@@ -18,13 +18,13 @@
                     <!-- Card body START -->
                     <div class="card-body text-center pt-0">
                         <!-- Avatar -->
-                        <div class="avatar avatar-lg mt-n5 mb-3">
+                        <div class="avatar avatar-xxl mt-n5 mb-3">
                             <a href="group-details.html"><img
                                     class="avatar-img rounded-circle border border-white border-3 bg-mode"
                                     src="{{ group.photo.url }}" alt=""></a>
                         </div>
                         <!-- Info -->
-                        <h5 class="mb-0"> <a href="{% url 'groups:details' group.id %}">{{ group.name }}</a> </h5>
+                        <h5 class="mb-0"> <a href="{% url 'groups:profile' group.slug %}">{{ group.name }}</a> </h5>
                         <small> <i class="bi bi-lock pe-1"></i> Public Group</small>
                         <!-- Group stat START -->
                         <div class="hstack gap-2 gap-xl-3 justify-content-center mt-3">

@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from tinymce.models import HTMLField
 
 from users.models import Member
-from events.choices import EVENT_VISIBILITY_CHOICES
+from events.choices import EVENT_VISIBILITY_CHOICES, EVENT_TYPE_CHOICES, EVENT_FORMAT_CHOICES
 
 class Event(models.Model):
     name = models.CharField(_("name"), max_length=50, null=False, blank=True)
@@ -15,6 +15,8 @@ class Event(models.Model):
     venue = models.CharField(_("venue"), max_length=50, null=False, blank=True)
     location = models.CharField(_("location"), max_length=50, null=False, blank=True)
     visibility = models.CharField(_("visibility"), max_length=50, choices=EVENT_VISIBILITY_CHOICES, default="Public", null=False, blank=True)
+    type = models.CharField(_("type"), max_length=50, choices=EVENT_TYPE_CHOICES, default="Meeting", null=False, blank=True)
+    format = models.CharField(_("format"), max_length=50, choices=EVENT_FORMAT_CHOICES, default="In-person", null=False, blank=True)
     photo = models.ImageField(_("photo"), upload_to='events/%Y/%m/%d/', null=True, blank=True)
     start_time = models.DateTimeField(_("start time"), auto_now=False, auto_now_add=False)
     end_time = models.DateTimeField(_("end time"), auto_now=False, auto_now_add=False)

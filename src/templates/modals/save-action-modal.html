@@ -1,0 +1,40 @@
+<div class="modal fade" id="saveActionModal" tabindex="-1" aria-labelledby="saveActionLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="saveActionLabel">Save Action</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="action-form" method="post" action="{% url 'project_managers:action_create' project.id %}" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.label.errors }}
+                        <label class="form-label" for="{{ form.label.id_for_label }}">Label:</label>
+                        {{ form.label }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.details.errors }}
+                        <label class="form-label" for="{{ form.details.id_for_label }}">Details:</label>
+                        {{ form.details }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.start_date.errors }}
+                        <label class="form-label" for="{{ form.start_date.id_for_label }}">Start date:</label>
+                        {{ form.start_date }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.deadline.errors }}
+                        <label class="form-label" for="{{ form.deadline.id_for_label }}">Deadline:</label>
+                        {{ form.deadline }}
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="action-form" class="btn btn-primary">Save now</button>
+                <button type="button" class="btn btn-cta-soft me-2" data-bs-dismiss="modal"> Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

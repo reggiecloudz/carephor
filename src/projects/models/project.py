@@ -11,9 +11,6 @@ from classifications.models import Cause
 class Project(models.Model):
     slug = models.SlugField(_("slug"), unique=True, blank=True)
     name = models.CharField(_("name"), max_length=128, null=False, blank=True)
-    overview = models.TextField(_("overview"), default="", null=False, blank=True)
-    vision = models.TextField(_("vision"), default="", null=False, blank=True)
-    beneficiaries = models.JSONField(_("beneficiaries"), default=list, null=True, blank=True)
     photo = models.ImageField(upload_to='projects/%Y/%m/%d/', null=True, blank=True)
     closed = models.BooleanField(default=False)
     manager = models.ForeignKey(Member, verbose_name=_("manager"), on_delete=models.CASCADE, related_name="projects_managed", null=True, blank=True)

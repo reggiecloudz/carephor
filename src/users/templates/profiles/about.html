@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ member.identity.name }}
+{% endblock title %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/OverlayScrollbars-master/css/OverlayScrollbars.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/tiny-slider/dist/tiny-slider.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/choices.js/public/assets/styles/choices.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/glightbox-master/dist/css/glightbox.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/dropzone/dist/dropzone.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/flatpickr/dist/flatpickr.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/plyr/plyr.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/zuck.js/dist/zuck.min.css' %}">
+{% endblock stylesheets %}
+
+{% block content %}
+{% include 'partials/appbar.html' %}
+<main>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-8 vstack gap-4">
+                {% include 'partials/profile_header.html' with member=member page_name="About" %}
+                <div class="card card-body">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <h4>About</h4>
+                            <p>
+                                Aliquam id vestibulum dolor. Maecenas iaculis eu nisi ac vehicula. In quis posuere massa, nec commodo lorem. Morbi tincidunt mollis condimentum. Nam tempor tincidunt eros, laoreet iaculis purus congue eu. Quisque quis odio tellus. In in nibh ipsum. Mauris euismod molestie leo, ac consectetur enim efficitur a. Sed at orci in orci luctus rhoncus. Nulla maximus scelerisque tellus, a ullamcorper tortor feugiat at. In volutpat porta dui, quis maximus mauris. Vivamus sodales eu libero nec gravida. Ut vulputate sapien vitae facilisis rutrum. Mauris eget nibh velit.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-body">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <h4>Values</h4>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">This is a list item.</li>
+                                <li class="list-inline-item">And another one.</li>
+                                <li class="list-inline-item">But they're displayed inline.</li>
+                              </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-body">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <h4>Interests</h4>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">This is a list item.</li>
+                                <li class="list-inline-item">And another one.</li>
+                                <li class="list-inline-item">But they're displayed inline.</li>
+                              </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-body">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <h4>Occupation</h4>
+                            <p>{{ member.occupation }}</p>
+                        </div>
+                        <div class="col-12">
+                            <h4>Education</h4>
+                            <p>{{ member.education }}</p>
+                        </div>
+                        <div class="col-12">
+                            <h4>Orientation</h4>
+                            <p>{{ member.orientation }}</p>
+                        </div>
+                        <div class="col-12">
+                            <h4>Political Ideology</h4>
+                            <p>{{ member.political_ideology }}</p>
+                        </div>
+                        <div class="col-12">
+                            <h4>Religion</h4>
+                            <p>{{ member.religion }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-12">
+                        {% include 'partials/news_card.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include 'partials/footer.html' %}
+
+{% endblock content %}
+
+{% block javascripts %}
+    <script src="{% static 'assets/vendor/tiny-slider/dist/tiny-slider.js' %}"></script>
+    <script src="{% static 'assets/vendor/OverlayScrollbars-master/js/OverlayScrollbars.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/choices.js/public/assets/scripts/choices.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox-master/dist/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/flatpickr/dist/flatpickr.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/plyr/plyr.js' %}"></script>
+    <script src="{% static 'assets/vendor/dropzone/dist/min/dropzone.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/zuck.js/dist/zuck.min.js' %}"></script>
+    <script src="{% static 'assets/js/zuck-stories.js' %}"></script>
+{% endblock javascripts %}

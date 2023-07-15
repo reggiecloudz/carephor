@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ request.user.name }} Calendar
+{% endblock title %}
+
+{% block styles %}
+<style>
+    #calendar {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+    {% include 'partials/appbar.html' %}
+    <main>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <!-- Advanced filter responsive toggler START -->
+                    <div class="d-flex align-items-center d-lg-none">
+                        <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+                            <span class="btn btn-primary"><i class="fa-solid fa-sliders-h"></i></span>
+                            <span class="h6 mb-0 fw-bold d-lg-none ms-2">Profile</span>
+                        </button>
+                    </div>
+                    <!-- Advanced filter responsive toggler END -->
+
+                    {% include 'partials/member_nav.html' %}
+                </div>
+
+                <div class="col-lg-9 vstack gap-4">
+                    <div class="row g-4 pb-3">
+                        <div class="col-12">
+                            <div class="card h-100">
+                                <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+                                    <h1 class="h4 card-title">Calendar</h1>
+                                    <div class="dropdown">
+                                        <!-- Card share action menu -->
+                                        <button class="icon-sm btn btn-complementary-soft btn-sm" type="button" id="profileAction2" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <!-- Card share action dropdown menu -->
+                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileAction2">
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+                                                    <i class="bi bi-envelope-paper-heart fa-fw pe-2"></i>
+                                                    Send email
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+                                                    <i class="bi bi-file-earmark-pdf fa-fw pe-2"></i>
+                                                    Save calendar to PDF
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+                                                    <i class="bi bi-flag fa-fw pe-2"></i>
+                                                    Report
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+{% block javascripts %}
+<script src="{% static 'assets/vendor/fullcalendar/dist/index.global.min.js' %}"></script>
+{% endblock javascripts %}
+
+{% block blockscript %}
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            eventClick: function(info) {
+                
+            },
+            dateClick: function(info) {
+                const ele = document.getElementById('saveEventModal');
+                const startTime = document.getElementById('id_start_time');
+                let saveEventModal = new bootstrap.Modal(ele);
+                ele.addEventListener('shown.bs.modal', event => {
+                    console.log(info.dateStr);
+                    startTime.value = info.dateStr + " 06:00";
+                });
+                saveEventModal.show();
+                //alert(info.dateStr);
+            },
+            initialView: 'dayGridMonth',
+            events: [
+                {% for i in events %}
+                    {
+                        title: "{{ i.event.name }}",
+                        start: '{{ i.event.start_time|date:"Y-m-d" }}',
+                        end: '{{ i.event.end_time|date:"Y-m-d" }}',
+                        url: "{% url 'events:info' i.event.id %}"
+                    },
+                {% endfor %}
+            ]
+        });
+        calendar.render();
+    });
+
+</script>
+{% endblock blockscript %}

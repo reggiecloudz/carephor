@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg mx-0"> 
+<nav class="navbar navbar-expand-lg mx-0 sticky-lg-top"> 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSideNavbar">
         <!-- Offcanvas header -->
         <div class="offcanvas-header">
@@ -22,7 +22,7 @@
                             </a>
                         </div>
                         <!-- Info -->
-                        <h5 class="mb-0"> <a href="#!"> {{ request.user.name }} </a> </h5>
+                        <h5 class="mb-0"> <a href="{% url 'profiles:profile' request.user.member.slug %}"> {{ request.user.name }} </a> </h5>
                         <small>{{ request.user.member.occupation }}</small>
                     </div>
 
@@ -32,21 +32,39 @@
                     <!-- Side Nav START -->
                     <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
                         <li class="nav-item">
-                            <a class="nav-link text-light-emphasis" href="{% url 'members:applications' request.user.member.id %}"> 
-                                <i class="fa-solid fa-clipboard me-2"></i>
-                                Applications
+                            <a class="nav-link text-light-emphasis" href="{% url 'members:details' request.user.member.id %}"> 
+                                <i class="fa-solid fa-feather-pointed me-2"></i>
+                                Posts
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light-emphasis" href="{% url 'members:projects' request.user.member.id %}"> 
-                                <i class="fa-solid fa-heart-pulse me-2 text"></i>
-                                Projects
+                            <a class="nav-link text-light-emphasis" href="#">
+                                <i class="fa-solid fa-circle-nodes me-2"></i>
+                                Connections
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light-emphasis" href="{% url 'members:groups' request.user.member.id %}"> 
-                                <i class="fa-solid fa-people-group me-2 text"></i>
+                                <i class="fa-solid fa-people-group me-2"></i>
                                 Groups
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light-emphasis" href="{% url 'members:projects' request.user.member.id %}"> 
+                                <i class="fa-solid fa-heart-pulse me-2"></i>
+                                Projects
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light-emphasis" href="{% url 'members:calendar' request.user.member.id %}">
+                                <i class="fa-solid fa-calendar me-2"></i>
+                                Calendar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light-emphasis" href="{% url 'members:applications' request.user.member.id %}"> 
+                                <i class="fa-solid fa-clipboard me-2"></i>
+                                Applications
                             </a>
                         </li>
                         <li class="nav-item">
@@ -61,7 +79,7 @@
                 <!-- Card body END -->
                 <!-- Card footer -->
                 <div class="card-footer text-center py-2">
-                    <a class="btn btn-link btn-sm" href="#">View Profile </a>
+                    <a class="btn btn-link btn-sm" href="{% url 'profiles:profile' request.user.username %}">View Profile </a>
                 </div>
             </div>
             <!-- Card END -->
@@ -89,7 +107,7 @@
             </ul>
             <!-- Helper link END -->
             <!-- Copyright -->
-            <p class="small text-center mt-1">©2023 <a class="text-body" target="_blank" href="{% url 'home' %}"> People 4</a></p>
+            <p class="small text-center mt-1">©2023 <a class="text-body" target="_blank" href="{% url 'home' %}"> Trinity Community Action Network</a></p>
         </div>
     </div>
 </nav>

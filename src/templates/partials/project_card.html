@@ -37,10 +37,9 @@
         </ul>
         <div class="d-flex mt-3 justify-content-between">
             <div class="w-100">
-                <input type="checkbox" class="btn-check d-block" id="Interested1">
-                <label class="btn btn-sm btn-primary-soft d-block" for="Interested1">
+                <a class="btn btn-sm btn-primary-soft d-block" href="{% url 'projects:details' project.id %}">
                     <i class="fa-solid fa-heart me-1"></i> Support
-                </label>
+                </a>
             </div>
             <div class="dropdown ms-3">
                 <a href="#" class="btn btn-sm btn-complementary-soft" id="eventActionShare" data-bs-toggle="dropdown"

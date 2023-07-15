@@ -5,6 +5,17 @@
     {{ request.user.name }}
 {% endblock title %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/OverlayScrollbars-master/css/OverlayScrollbars.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/tiny-slider/dist/tiny-slider.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/choices.js/public/assets/styles/choices.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/glightbox-master/dist/css/glightbox.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/dropzone/dist/dropzone.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/flatpickr/dist/flatpickr.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/plyr/plyr.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/zuck.js/dist/zuck.min.css' %}">
+{% endblock stylesheets %}
+
 {% block content %}
     {% include 'partials/appbar.html' %}
     <main>
@@ -24,217 +35,26 @@
                 </div>
 
                 <div class="col-lg-9 vstack gap-4">
-                    <div class="card">
-                        <div class="card-header border-0 pb-0">
-                            <h5 class="card-title"> Member Info</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="rounded border px-3 py-2 mb-3">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h6>Overview</h6>
-                                    <div class="dropdown ms-auto">
-                                        <a class="nav-link text-secondary mb-0" href="#" id="aboutAction" data-bs-toggle="dropdown"
-                                            aria-expanded="false">
-                                            <i class="bi bi-three-dots"></i>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction">
-                                            <li><a class="dropdown-item" href="#"> <i class="bi bi-pencil-square fa-fw pe-2"></i>Edit</a>
-                                            </li>
-                                            <li><a class="dropdown-item" href="#"> <i class="bi bi-trash fa-fw pe-2"></i>Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <p>
-                                    He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire
-                                    difficulty gay assistance joy. Handsome met debating sir dwelling age material. As
-                                    style lived he worse dried. Offered related so visitors we private removed. Moderate
-                                    do subjects to distance. 
-                                </p>
-                            </div>
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="d-flex align-items-center rounded border px-3 py-2">
-                                        <p class="mb-0">
-                                            <i class="bi bi-calendar-date fa-fw me-2"></i> 
-                                            Born: <strong> October 20, 1990 </strong>
-                                        </p>
-                                        <div class="dropdown ms-auto">
-                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction2" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                <i class="bi bi-three-dots"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction2">
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
-                                                        Edit
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-trash fa-fw pe-2"></i>
-                                                        Delete
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-flex align-items-center rounded border px-3 py-2">
-                                        <p class="mb-0">
-                                            <i class="bi bi-heart fa-fw me-2"></i> Status: <strong> Single </strong>
-                                        </p>
-                                        <div class="dropdown ms-auto">
-                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction3" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                <i class="bi bi-three-dots"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction3">
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
-                                                        Edit
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-trash fa-fw pe-2"></i>
-                                                        Delete
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-flex align-items-center rounded border px-3 py-2">
-                                        <p class="mb-0">
-                                            <i class="bi bi-briefcase fa-fw me-2"></i> <strong> Lead Developer </strong>
-                                        </p>
-                                        <div class="dropdown ms-auto">
-                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction4" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                <i class="bi bi-three-dots"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction4">
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
-                                                        Edit
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-trash fa-fw pe-2"></i>
-                                                        Delete
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-flex align-items-center rounded border px-3 py-2">
-                                        <p class="mb-0">
-                                            <i class="bi bi-geo-alt fa-fw me-2"></i> Lives in: <strong> New Hampshire
-                                            </strong>
-                                        </p>
-                                        <div class="dropdown ms-auto">
-                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction5" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                <i class="bi bi-three-dots"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction5">
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
-                                                        Edit
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-trash fa-fw pe-2"></i>
-                                                        Delete
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-flex align-items-center rounded border px-3 py-2">
-                                        <p class="mb-0">
-                                            <i class="bi bi-geo-alt fa-fw me-2"></i> Joined on: <strong> Nov 26, 2019
-                                            </strong>
-                                        </p>
-                                        <div class="dropdown ms-auto">
-                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction6" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                <i class="bi bi-three-dots"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction6">
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
-                                                        Edit
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-trash fa-fw pe-2"></i>
-                                                        Delete
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-flex align-items-center rounded border px-3 py-2">
-                                        <p class="mb-0">
-                                            <i class="bi bi-envelope fa-fw me-2"></i> 
-                                            Email: <strong> member@local.com </strong>
-                                        </p>
-                                        <div class="dropdown ms-auto">
-                                            <a class="nav-link text-secondary mb-0" href="#" id="aboutAction7" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                <i class="bi bi-three-dots"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutAction7">
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-pencil-square fa-fw pe-2"></i>
-                                                        Edit
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"> 
-                                                        <i class="bi bi-trash fa-fw pe-2"></i>
-                                                        Delete
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 position-relative">
-                                    <a class="btn btn-dashed rounded w-100" href="#!"> 
-                                        <i class="bi bi-plus-circle-dotted me-1"></i>
-                                        Add a workplace
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 position-relative">
-                                    <a class="btn btn-dashed rounded w-100" href="#!"> 
-                                        <i class="bi bi-plus-circle-dotted me-1"></i>
-                                        Add a education
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% include 'partials/share_form.html' %}
+                    {% include 'partials/post_list.html' %}
                 </div>
             </div>
         </div>
     </main>
+    {% comment %} {% include 'modals/feed-modal.html' %}
+    {% include 'modals/photo-modal.html' %}
+    {% include 'modals/question-modal.html' %}
+    {% include 'modals/video-modal.html' %} {% endcomment %}
 {% endblock content %}
+
+{% block javascripts %}
+    <script src="{% static 'assets/vendor/tiny-slider/dist/tiny-slider.js' %}"></script>
+    <script src="{% static 'assets/vendor/OverlayScrollbars-master/js/OverlayScrollbars.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/choices.js/public/assets/scripts/choices.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox-master/dist/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/flatpickr/dist/flatpickr.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/plyr/plyr.js' %}"></script>
+    <script src="{% static 'assets/vendor/dropzone/dist/min/dropzone.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/zuck.js/dist/zuck.min.js' %}"></script>
+    <script src="{% static 'assets/js/zuck-stories.js' %}"></script>
+{% endblock javascripts %}

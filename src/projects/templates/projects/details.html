@@ -23,12 +23,6 @@
                     <div class="col-12">
                         {% include 'partials/project_vision.html' with project=project %}
                     </div>
-                    <div class="col-12">
-                        {% include 'partials/project_tasks.html' with project=project %}
-                    </div>
-                    <div class="col-12">
-                        {% include 'partials/project_expenses.html' with project=project %}
-                    </div>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -48,8 +42,8 @@
 
 {% if request.user.is_authenticated %}
     {% if request.user.is_member and project.manager == request.user.member %}
-        {% include '../modals/save_project_modal.html' with form=form %}
-        {% include '../modals/save_expenditure_modal.html' %}
+        {% include '../modals/save-project-modal.html' with form=form %}
+        {% include '../modals/save-expenditure-modal.html' %}
     {% endif %}
 {% endif %}
 

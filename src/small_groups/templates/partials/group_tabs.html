@@ -1,0 +1,147 @@
+{% load static %}
+
+<ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+    <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1"> Details </a> </li>
+    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2"> Update </a> </li>
+    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-3"> Members </a> </li>
+    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-4"> Settings </a> </li>
+</ul>
+
+<div class="tab-content mb-0 pb-0">
+    <div class="tab-pane fade show active" id="tab-1">
+        <p>{{ group.about }}</p>
+    </div>
+
+    <div class="tab-pane fade" id="tab-2">
+        <form method="post" action="#" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.name.errors }}
+                <label class="form-label" for="{{ form.name.id_for_label }}">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="mb-3">
+                {{ form.about.errors }}
+                <label class="form-label" for="{{ form.about.id_for_label }}">About:</label>
+                {{ form.about }}
+            </div>
+            <div class="mb-3">
+                {{ form.cause.errors }}
+                <label class="form-label" for="{{ form.cause.id_for_label }}">Cause:</label>
+                {{ form.cause }}
+            </div>
+            <div class="mb-3">
+                {{ form.photo.errors }}
+                <label class="form-label" for="{{ form.photo.id_for_label }}">Photo:</label>
+                {{ form.photo }}
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="tab-pane fade" id="tab-3">
+        <div class="row g-4">
+            <div class="col">
+                <!-- Connection item START -->
+                <div class="hstack gap-2 mb-3">
+                    <!-- Avatar -->
+                    <div class="avatar">
+                        <a href="#!"><img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/04.jpg' %}" alt=""></a>
+                    </div>
+                    <!-- Title -->
+                    <div class="overflow-hidden">
+                        <a class="h6 mb-0" href="#!">Judy Nguyen </a>
+                        <p class="mb-0 small text-truncate">News anchor</p>
+                    </div>
+                    <!-- Button -->
+                    <a class="btn btn-cta-soft rounded-circle icon-md ms-auto" href="#"><i class="fa-solid fa-minus"> </i></a>
+                    <a class="btn btn-primary-soft rounded-circle icon-md" href="#"><i class="fa-solid fa-plus"> </i></a>
+
+                </div>
+                <!-- Connection item END -->
+                <!-- Connection item START -->
+                    <div class="hstack gap-2 mb-3">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-story">
+                            <a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/05.jpg' %}" alt=""> </a>
+                        </div>
+                        <!-- Title -->
+                        <div class="overflow-hidden">
+                            <a class="h6 mb-0" href="#!">Amanda Reed </a>
+                            <p class="mb-0 small text-truncate">Web Developer</p>
+                        </div>
+                        <!-- Button -->
+                        <a class="btn btn-primary rounded-circle icon-md ms-auto" href="#"><i class="bi bi-person-check-fill"> </i></a>
+                        <a class="btn btn-cta-soft rounded-circle icon-md" href="#"><i class="fa-solid fa-minus"> </i></a>
+                </div>
+                <!-- Connection item END -->
+
+                <!-- Connection item START -->
+                <div class="hstack gap-2 mb-3">
+                    <!-- Avatar -->
+                    <div class="avatar">
+                        <a href="#"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/11.jpg' %}" alt=""> </a>
+                    </div>
+                    <!-- Title -->
+                    <div class="overflow-hidden">
+                        <a class="h6 mb-0" href="#!">Billy Vasquez </a>
+                        <p class="mb-0 small text-truncate">News anchor</p>
+                    </div>
+                    <!-- Button -->
+                    <a class="btn btn-cta rounded-circle icon-md ms-auto" href="#"><i class="bi bi-person-fill-slash"> </i></a>
+                    <a class="btn btn-primary-soft rounded-circle icon-md" href="#"><i class="fa-solid fa-plus"> </i></a>
+                </div>
+                <!-- Connection item END -->
+                
+                <!-- Connection item START -->
+                <div class="hstack gap-2 mb-3">
+                    <!-- Avatar -->
+                    <div class="avatar">
+                        <a href="#"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/01.jpg' %}" alt=""> </a>
+                    </div>
+                    <!-- Title -->
+                    <div class="overflow-hidden">
+                        <a class="h6 mb-0" href="#!">Lori Ferguson </a>
+                        <p class="mb-0 small text-truncate">Web Developer at Webestica</p>
+                    </div>
+                    <!-- Button -->
+                    <a class="btn btn-cta-soft rounded-circle icon-md ms-auto" href="#"><i class="fa-solid fa-minus"> </i></a>
+                    <a class="btn btn-primary-soft rounded-circle icon-md" href="#"><i class="fa-solid fa-plus"> </i></a>
+                </div>
+                <!-- Connection item END -->
+
+                <!-- Connection item START -->
+                <div class="hstack gap-2 mb-3">
+                    <!-- Avatar -->
+                    <div class="avatar">
+                        <a href="#"> <img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/placeholder.jpg' %}" alt=""> </a>
+                    </div>
+                    <!-- Title -->
+                    <div class="overflow-hidden">
+                        <a class="h6 mb-0" href="#!">Carolyn Ortiz </a>
+                        <p class="mb-0 small text-truncate">News anchor</p>
+                    </div>
+                    <!-- Button -->
+                    <a class="btn btn-cta-soft rounded-circle icon-md ms-auto" href="#"><i class="fa-solid fa-minus"> </i></a>
+                    <a class="btn btn-primary-soft rounded-circle icon-md" href="#"><i class="fa-solid fa-plus"> </i></a>
+                </div>
+                <!-- Connection item END -->
+
+                <!-- View more button -->
+                <div class="d-grid mt-3">
+                    <a class="btn btn-sm btn-primary-soft" href="#!">View more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="tab-4">
+        <div class="row g-4">
+            <div class="col">
+                <p>Settings</p>
+            </div>
+        </div>
+    </div>
+</div>

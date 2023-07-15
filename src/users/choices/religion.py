@@ -1,0 +1,25 @@
+from django.utils.translation import ugettext_lazy as _
+
+RELIGIONS = (
+    ('Bahai Faith', _("Bahai Faith")),
+    ('Buddhism', _('Buddhism')),
+    ('Christianity', _('Christianity')),
+    ('Druze', _("Druze")),
+    ('Traditional Religion', _("Traditional Religion")),
+    ('Hinduism', _('Hinduism')),
+    ('Islam', _('Islam')),
+    ('Jainism', _("Jainism")),
+    ('Judaism', _('Judaism')),
+    ('None', _('None')),
+    ('Paganism', _("Paganism")),
+    ('Sikhism', _('Sikhism')),
+    ('Scientology', _('Scientology')),
+    ('Shinto', _('Shinto')),
+    ('Spiritism', _('Spiritism')),
+    ('Spiritual', _('Spiritual (but not listed)')),
+    ('Taoism', _('Taoism')),
+    ('Unaffiliated', _('Unaffiliated')),
+    ('Vodou', _('Vodou')),
+    ('Zoroastrianism', _('Zoroastrianism')),
+    ('Not Specified', _('Not Specified')),
+)
